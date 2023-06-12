@@ -9,11 +9,27 @@ const users = [
           interactions: [
             { date: getRandomDate(), action: getRandomAction() },
             { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
           ],
         },
         {
           profileId: 3,
           interactions: [
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
             { date: getRandomDate(), action: getRandomAction() },
             { date: getRandomDate(), action: getRandomAction() },
           ],
@@ -23,11 +39,27 @@ const users = [
           interactions: [
             { date: getRandomDate(), action: getRandomAction() },
             { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
           ],
         },
         {
           profileId: 5,
           interactions: [
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
             { date: getRandomDate(), action: getRandomAction() },
             { date: getRandomDate(), action: getRandomAction() },
           ],
@@ -37,6 +69,14 @@ const users = [
           interactions: [
             { date: getRandomDate(), action: getRandomAction() },
             { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
           ],
         },
         {
@@ -44,11 +84,27 @@ const users = [
           interactions: [
             { date: getRandomDate(), action: getRandomAction() },
             { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
           ],
         },
         {
           profileId: 8,
           interactions: [
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
+            { date: getRandomDate(), action: getRandomAction() },
             { date: getRandomDate(), action: getRandomAction() },
             { date: getRandomDate(), action: getRandomAction() },
           ],
@@ -165,23 +221,33 @@ const users = [
     const timeDiffInDays = Math.ceil(
       (currentDate - interactionDate) / (1000 * 60 * 60 * 24)
     );
-    const weightMultiplier = 1 / Math.pow(timeDiffInDays, 0.5); // Adjust the decay rate as per your preference
+    const weightMultiplier = 1 / Math.pow(timeDiffInDays, 0.3); // Adjust the decay rate as per your preference
   
     return weightMultiplier;
   }
   
-  // Calculate personalized profile scores based on user weights
-  function calculatePersonalizedProfileScores(userWeights, userId) {
-    const profileScores = {};
-  
-    Object.entries(userWeights[userId]).forEach(([profileId, profileData]) => {
-      const { totalWeight, heartCount, dislikeCount } = profileData;
-      const score = totalWeight + heartCount - dislikeCount;
-      profileScores[profileId] = score;
-    });
-  
-    return profileScores;
-  }
+// Calculate personalized profile scores based on user weights with randomness
+function calculatePersonalizedProfileScores(userWeights, userId) {
+  const profileScores = {};
+
+  Object.entries(userWeights[userId]).forEach(([profileId, profileData]) => {
+    const { totalWeight, heartCount, dislikeCount } = profileData;
+
+    // Calculate the random weight as a percentage of the total weight
+    const randomPercentage = Math.random() * 0.3 - 0.15; // Random value between -0.15 and 0.15 (adjust the range as needed)
+    const randomWeight = totalWeight * randomPercentage;
+
+    const score = totalWeight + heartCount - dislikeCount + randomWeight;
+
+    console.log(`Profile ${profileId}: Score ${score.toFixed(2)} (Random Weight: ${randomWeight.toFixed(2)})`);
+
+    profileScores[profileId] = score;
+  });
+
+  return profileScores;
+}
+
+
   
   // Sort and filter profiles based on scores and limit
   function sortAndFilterProfiles(profileScores, limit) {
@@ -214,7 +280,7 @@ const users = [
   }
   
   // Example usage
-  const recommendationResults = runPersonalizedRecommendationAlgorithm(users, 1, 5);
+  const recommendationResults = runPersonalizedRecommendationAlgorithm(users, 1, 6);
   console.log(recommendationResults);
   const profilePhotoURLs = getProfilePhotoURLs(users, recommendationResults);
   

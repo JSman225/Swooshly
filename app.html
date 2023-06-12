@@ -11,21 +11,14 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#303030">
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
-    <script>
-        if (window.navigator.standalone !== void(0)) {
-	$(window).load(function() {
-		if (!this.navigator.standalone) {
-			this.setTimeout(function() { this.scrollTo(this.scrollX, this.scrollY + 1); }, 500);
-		}
-	});
-}
-    </script>
     <link rel="stylesheet" href="app/app.css">
+    <link rel="stylesheet" href="app/homepage.css">
     <title>Saber Swoosh - App</title>
 </head>
 <body>
     <div class="app">
-        <div class="container">
+        <!--
+        <section style="display: none;" class="container">
             <div class="image-container-centered">
                 <img class="saber" src="assets/saber.png">
             </div>
@@ -37,7 +30,16 @@
                 <p>Worem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 <button>Get started</button>
             </div>
-        </div>
+        </section> -->
+
+        <section class="homepage-container">
+            <div class="search-bar">
+                <input type="search">
+            </div>
+            
+
+        </section>
+
     </div>
 </body>
 </html>
