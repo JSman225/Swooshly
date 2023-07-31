@@ -13,9 +13,7 @@
     <meta name="theme-color" content="#ffffff">
     
     <title>Saber Swoosh</title>
-</head>
-<body>
-    <script>
+    <script defer>
         // Function to detect if the user is on a mobile device
         function isMobileDevice() {
           return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
@@ -24,11 +22,11 @@
         // Function to perform the redirect
         function performRedirect() {
           if (isMobileDevice() && window.matchMedia("(display-mode: standalone)").matches) {
-            // Mobile device with PWA installed, redirect to main.com
-            window.location.href = "https://main.com";
+            // Mobile device with PWA installed, redirect to the main page
+            window.location.href = "https://saberswoosh.netlify.app/";
           } else {
-            // Desktop or mobile without PWA, redirect to main.com/get-started
-            window.location.href = "https://main.com/get-started";
+            // Desktop or mobile without PWA, redirect to the get-started page
+            window.location.href = "https://saberswoosh.netlify.app/get-started";
           }
         }
     
@@ -36,13 +34,16 @@
         performRedirect();
 
         if ('serviceWorker' in navigator) {
-      // Register the Service Worker
-      navigator.serviceWorker.register('service-worker.js').then(registration => {
-        console.log('Service Worker registered:', registration);
-      }).catch(error => {
-        console.error('Service Worker registration failed:', error);
-      });
-    }
+          // Register the Service Worker
+          navigator.serviceWorker.register('service-worker.js').then(registration => {
+            console.log('Service Worker registered:', registration);
+          }).catch(error => {
+            console.error('Service Worker registration failed:', error);
+          });
+        }
       </script>
+</head>
+<body>
+    <h1>Hey, Welcome to Saber Swoosh</h1>
 </body>
 </html>
