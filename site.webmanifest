@@ -1,7 +1,7 @@
 {
     "name": "Saber Swoosh",
     "short_name": "Saber Swoosh",
-    "start_url": "app.html", 
+    "start_url": "/", 
     "icons": [
         {
             "src": "/android-chrome-192x192.png",
