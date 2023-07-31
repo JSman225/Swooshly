@@ -1,113 +1,44 @@
 // Sample user interactions data
+// { date: getRandomDate(), action: getRandomAction() },
 const users = [
     {
       userId: 1,
       profilePhoto: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=420&q=80',
+      posts: [
+        {
+          date: getRandomDate(),
+          caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+          photo: 'https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=420&q=80'
+        }
+      ],
       interactions: [
         {
           profileId: 2,
-          interactions: [
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-          ],
+          interactions: [],
         },
         {
           profileId: 3,
-          interactions: [
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-          ],
+          interactions: [],
         },
         {
           profileId: 4,
-          interactions: [
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-          ],
+          interactions: [],
         },
         {
           profileId: 5,
-          interactions: [
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-          ],
+          interactions: [],
         },
         {
           profileId: 6,
-          interactions: [
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-          ],
+          interactions: [],
         },
         {
           profileId: 7,
-          interactions: [
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-          ],
+          interactions: [],
         },
         {
           profileId: 8,
-          interactions: [
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-            { date: getRandomDate(), action: getRandomAction() },
-          ],
+          interactions: [],
         },
       ],
     },
@@ -115,36 +46,85 @@ const users = [
     {
         userId: 2,
         profilePhoto: 'https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+        posts: [
+          {
+            date: getRandomDate(),
+            caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            photo: 'https://images.unsplash.com/photo-1673483709643-9d7c6aff9987?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80'
+          }
+        ],
         interactions: []
     },
     {
         userId: 3,
         profilePhoto: 'https://images.unsplash.com/photo-1528228377194-2faca82540e4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+        posts: [
+          {
+            date: getRandomDate(),
+            caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            photo: 'https://images.unsplash.com/photo-1528228257617-cf313ddbed0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80'
+          }
+        ],
         interactions: []
     },
     {
         userId: 4,
         profilePhoto: 'https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+        posts: [
+          {
+            date: getRandomDate(),
+            caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            photo: 'https://images.unsplash.com/photo-1584080995764-4fb1b81370bc?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80'
+          }
+        ],
         interactions: []
     },
     {
         userId: 5,
-        profilePhoto: 'https://images.unsplash.com/photo-1660032109345-f513b154cc2f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+        profilePhoto: 'https://images.unsplash.com/photo-1503104834685-7205e8607eb9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+        posts: [
+          {
+            date: getRandomDate(),
+            caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            photo: 'https://images.unsplash.com/photo-1504445868834-a29c97891b92?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80'
+          }
+        ],
         interactions: []
     },
     {
         userId: 6,
-        profilePhoto: 'https://images.unsplash.com/photo-1537065827051-e2a8ddd45fdb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+        profilePhoto: 'https://images.unsplash.com/photo-1590101084993-edc848651c61?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+        posts: [
+          {
+            date: getRandomDate(),
+            caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            photo: 'https://images.unsplash.com/photo-1582887783532-b1471887153e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80'
+          }
+        ],
         interactions: []
     },
     {
         userId: 7,
         profilePhoto: 'https://images.unsplash.com/photo-1632852301600-05943e4bf450?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+        posts: [
+          {
+            date: getRandomDate(),
+            caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            photo: 'https://images.unsplash.com/photo-1632852302054-bbed6280ff2b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80'
+          }
+        ],
         interactions: []
     },
     {
         userId: 8,
         profilePhoto: 'https://images.unsplash.com/photo-1632852301637-b872e319a71d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80',
+        posts: [
+          {
+            date: getRandomDate(),
+            caption: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+            photo: 'https://images.unsplash.com/photo-1528228257617-cf313ddbed0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80'
+          }
+        ],
         interactions: []
     },
   ];
@@ -187,6 +167,7 @@ const users = [
   
         if (!userWeight[profileId]) {
           userWeight[profileId] = {
+            id: profileId,
             totalWeight: 0,
             heartCount: 0,
             dislikeCount: 0,
@@ -279,18 +260,126 @@ function calculatePersonalizedProfileScores(userWeights, userId) {
     return profilePhotoURLs.filter((url) => url !== null);
   }
   
+
+
   // Example usage
-  const recommendationResults = runPersonalizedRecommendationAlgorithm(users, 1, 6);
+  const recommendationResults = runPersonalizedRecommendationAlgorithm(users, 1, 1);
   console.log(recommendationResults);
-  const profilePhotoURLs = getProfilePhotoURLs(users, recommendationResults);
+
+
   
-
-
-  function replaceWithImages(obj) {
-    Object.entries(obj).forEach(([key, value]) => {
-        document.getElementById(key).src=value;
+  function getMostRecentPost(userId) {
+    // Find the user object with the given userId
+    const user = users.find(user => user.userId === Number(userId));
+  
+    // If user is not found, return null
+    if (!user) {
+      return null;
+    }
+  
+    // Get the posts array of the user
+    const posts = user.posts;
+  
+    // If there are no posts, return null
+    if (posts.length === 0) {
+      return null;
+    }
+  
+    // Sort the posts array by date in descending order
+    posts.sort((a, b) => new Date(b.date) - new Date(a.date));
+  
+    // Return the most recent post
+    return posts[0];
+  }
+  
+  
+  function createImageElements(users, recommendationResults) {
+    const imageElements = [];
+  
+    recommendationResults.forEach((profileId) => {
+      const user = users.find((user) => user.userId === Number(profileId));
+  
+      if (user && user.profilePhoto) {
+        const img = document.createElement('img');
+        img.src = user.profilePhoto;
+        img.setAttribute('data-profile-id', profileId);
+  
+        img.addEventListener('click', function () {
+          const profileId = this.getAttribute('data-profile-id');
+          handleClick(profileId);
+        });
+  
+        imageElements.push(img);
+      }
+    });
+  
+    return imageElements;
+  }
+  
+  function handleClick(profileId) {
+    console.log('Clicked profile ID:', profileId);
+    console.log(getMostRecentPost(profileId));
+    // Perform other actions based on the clicked profileId
+  }
+  
+  function appendImages(users, recommendationResults) {
+    const imageElements = createImageElements(users, recommendationResults);
+  
+    imageElements.forEach((img) => {
+      document.body.appendChild(img);
     });
   }
-
   
-replaceWithImages(profilePhotoURLs);
+  appendImages(users, recommendationResults);
+
+
+
+
+  function like(userId, postId) {
+    // Find the user object with the given userId
+    const user = users.find(user => user.userId === userId);
+  
+    // If user is not found, return false
+    if (!user) {
+      return false;
+    }
+  
+    // Find the post object with the given postId
+    const post = user.posts.find(post => post.id === postId);
+  
+    // If post is not found, return false
+    if (!post) {
+      return false;
+    }
+  
+    // Push the like to the post's interactions array
+    post.interactions.push({ type: 'like' });
+  
+    // Return true to indicate successful like
+    return true;
+  }
+  
+  function dislike(userId, postId) {
+    // Find the user object with the given userId
+    const user = users.find(user => user.userId === userId);
+  
+    // If user is not found, return false
+    if (!user) {
+      return false;
+    }
+  
+    // Find the post object with the given postId
+    const post = user.posts.find(post => post.id === postId);
+  
+    // If post is not found, return false
+    if (!post) {
+      return false;
+    }
+  
+    // Push the dislike to the post's interactions array
+    post.interactions.push({ type: 'dislike' });
+  
+    // Return true to indicate successful dislike
+    return true;
+  }
+  
