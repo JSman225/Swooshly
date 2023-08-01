@@ -11,35 +11,39 @@
     <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#303030">
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
-    <link rel="stylesheet" href="app/app.css">
-    <link rel="stylesheet" href="app/homepage.css">
-    <title>Saber Swoosh - App</title>
+    
+    <title>Saber Swoosh</title>
+    <script defer>
+        // Function to detect if the user is on a mobile device
+        function isMobileDevice() {
+          return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+        }
+    
+        // Function to perform the redirect
+        function performRedirect() {
+          if (isMobileDevice() && window.matchMedia("(display-mode: standalone)").matches) {
+            // Mobile device with PWA installed, redirect to the main page
+            console.log('Your all good! Enjoy your stay ♥');
+          } else {
+            // Desktop or mobile without PWA, redirect to the get-started page
+            window.location.href = "https://saberswoosh.netlify.app/get-started";
+          }
+        }
+
+        // Call the performRedirect function when the page loads
+        performRedirect();
+
+        if ('serviceWorker' in navigator) {
+          // Register the Service Worker
+          navigator.serviceWorker.register('service-worker.js').then(registration => {
+            console.log('Service Worker registered:', registration);
+          }).catch(error => {
+            console.error('Service Worker registration failed:', error);
+          });
+        }
+      </script>
 </head>
 <body>
-    <div class="app">
-        <!--
-        <section style="display: none;" class="container">
-            <div class="image-container-centered">
-                <img class="saber" src="assets/saber.png">
-            </div>
-            <div class="image-container-centered">
-                <img class="swoosh" src="assets/swoosh.svg">
-            </div>
-            <div class="content-container">
-                <h1>Ignite your confidence, attract admirers</h1>
-                <p>Worem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                <button>Get started</button>
-            </div>
-        </section> -->
-
-        <section class="homepage-container">
-        
-        <input type="search" class="search-bar">
-            
-        <div class="w-large"></div>
-
-        </section>
-
-    </div>
+    <h1>Hey, Welcome to Saber Swoosh</h1>
 </body>
 </html>
