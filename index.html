@@ -24,9 +24,6 @@
           if (isMobileDevice() && window.matchMedia("(display-mode: standalone)").matches) {
             // Mobile device with PWA installed, redirect to the main page
             window.location.href = "https://saberswoosh.netlify.app/app-main";
-          } else {
-            // Desktop or mobile without PWA, redirect to the get-started page
-            window.location.href = "https://saberswoosh.netlify.app/";
           }
         }
     
