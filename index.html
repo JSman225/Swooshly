@@ -12,7 +12,7 @@
     <meta name="msapplication-TileColor" content="#2b5797">
     <meta name="theme-color" content="#ffffff">
     
-    <title>Saber Swoosh</title>
+    <title>Get Started</title>
     <script defer>
         // Function to detect if the user is on a mobile device
         function isMobileDevice() {
@@ -23,10 +23,10 @@
         function performRedirect() {
           if (isMobileDevice() && window.matchMedia("(display-mode: standalone)").matches) {
             // Mobile device with PWA installed, redirect to the main page
-            window.location.href = "https://saberswoosh.netlify.app/";
+            window.location.href = "https://saberswoosh.netlify.app/app-main";
           } else {
             // Desktop or mobile without PWA, redirect to the get-started page
-            window.location.href = "https://saberswoosh.netlify.app/get-started";
+            window.location.href = "https://saberswoosh.netlify.app/";
           }
         }
     
@@ -44,6 +44,7 @@
       </script>
 </head>
 <body>
-    <h1>Hey, Welcome to Saber Swoosh</h1>
+    
+    <h1>Get started with Saber Swoosh</h1>
 </body>
 </html>
