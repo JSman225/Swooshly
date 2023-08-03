@@ -1,6 +1,32 @@
 <!DOCTYPE html>
 <html class="bg-blue-400" lang="en">
 <head>
+  <style>
+    /* Hide the status bar for iOS devices */
+@media (prefers-color-scheme: light) and (display-mode: standalone),
+(prefers-color-scheme: light) and (display-mode: fullscreen),
+(prefers-color-scheme: light) and (display-mode: minimal-ui) {
+  /* Replace #4299e1 with your desired blue color */
+  html {
+    background-color: #4299e1;
+    padding-top: constant(safe-area-inset-top); /* iOS 11.0+ */
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+/* Optional: If you want to hide the status bar in dark mode */
+@media (prefers-color-scheme: dark) and (display-mode: standalone),
+(prefers-color-scheme: dark) and (display-mode: fullscreen),
+(prefers-color-scheme: dark) and (display-mode: minimal-ui) {
+  /* Replace #1a202c with your desired dark color */
+  html {
+    background-color: #1a202c;
+    padding-top: constant(safe-area-inset-top); /* iOS 11.0+ */
+    padding-top: env(safe-area-inset-top);
+  }
+}
+
+  </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
