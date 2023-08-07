@@ -1,15 +1,12 @@
 // service-worker.js
-const cacheName = 'my-cache-v4'; // Update the cache name when the cache needs to be updated
+const cacheName = 'my-cache-v5'; // Update the cache name when the cache needs to be updated
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll([
         // List of file URLs to cache
-        '/app.html',     // Replace with your actual CSS file URL
-        '/assets/saber.png',         // Replace with your actual JS file URL
-        '/assets/swoosh.svg' // Replace with your actual image URL
-        // Add more file URLs as needed
+        '/app.html'
       ]);
     })
   );

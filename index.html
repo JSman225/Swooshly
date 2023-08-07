@@ -1,47 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-    <link rel="manifest" href="/site.webmanifest">
-    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#303030">
-    <meta name="msapplication-TileColor" content="#2b5797">
-    <meta name="theme-color" content="#ffffff">
-    
-    <title>Get Started</title>
-    <script defer>
-        // Function to detect if the user is on a mobile device
-        function isMobileDevice() {
-          return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-        }
-    
-        // Function to perform the redirect
-        function performRedirect() {
-          if (isMobileDevice() && window.matchMedia("(display-mode: standalone)").matches) {
-            // Mobile device with PWA installed, redirect to the main page
-            window.location.href = "https://saberswoosh.netlify.app/app";
-          }
-        }
-    
-        // Call the performRedirect function when the page loads
-        performRedirect();
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#111111">
+  <meta name="msapplication-TileColor" content="#111111">
+  <meta name="theme-color" content="#111111">
+  <title>Ignite your confidence | Swooshly</title>
+  <script defer>
+    // Function to detect if the user is on a mobile device
+    function isMobileDevice() {
+      return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    }
 
-        if ('serviceWorker' in navigator) {
-          // Register the Service Worker
-          navigator.serviceWorker.register('service-worker.js').then(registration => {
-            console.log('Service Worker registered:', registration);
-          }).catch(error => {
-            console.error('Service Worker registration failed:', error);
-          });
-        }
-      </script>
+    // Function to perform the redirect
+    function performRedirect() {
+      if (isMobileDevice() && window.matchMedia("(display-mode: standalone)").matches) {
+        // Mobile device with PWA installed, redirect to the main page
+        window.location.href = "https://swooshly.netlify.app/app";
+      }
+    }
+
+    // Call the performRedirect function when the page loads
+    performRedirect();
+  </script>
 </head>
+
 <body>
-    
-    <h1>Get started with Saber Swoosh</h1>
+
+  <h1>Get started with Saber Swoosh</h1>
+
 </body>
+
 </html>
