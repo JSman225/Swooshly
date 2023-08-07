@@ -26,6 +26,13 @@
     z-index: 9999;
     /* Ensure the loading screen is on top of other elements */
   }
+  .search-container {
+    display: flex;
+    justify-content: center;
+    margin: 0 16px;
+    margin-top:24px;
+  }
+  
   .apple-search-input {
     -webkit-appearance: searchfield;
     -moz-appearance: searchfield;
@@ -33,9 +40,9 @@
     padding: 8px 12px;
     font-size: 16px;
     border: 1px solid #ccc;
-    border-radius: 8px;
+    border-radius: 10px;
     background-color: #f0f0f0;
     color: #333;
     width: 100%;
-    max-width: 280px;
   }
+  
