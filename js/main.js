@@ -22,11 +22,20 @@ window.addEventListener('offline', updateOfflineStatus);
 const appContainer = document.getElementById('app');
 
 // Function to load a component into the app container
-function loadComponent(componentName) {
+function loadComponent(componentName, showNavBar) {
   fetch(`components/${componentName}.html`)
     .then((response) => response.text())
     .then((html) => {
       appContainer.innerHTML = html;
+
+      // Toggle navbar visibility based on the showNavBar parameter
+      const navBar = document.getElementById('nav-bar');
+      if (showNavBar) {
+        navBar.style.display = 'flex';
+      } else {
+        navBar.style.display = 'none';
+      }
+
       // You may also initialize any JavaScript functionality specific to the component here
     })
     .catch((error) => {
@@ -34,5 +43,5 @@ function loadComponent(componentName) {
     });
 }
 
-// Example: Load the login component when the app starts
-loadComponent('home');
+// Example: Load the login component with the navbar hidden
+loadComponent('title', false);
