@@ -35,4 +35,4 @@ function loadComponent(componentName) {
 }
 
 // Example: Load the login component when the app starts
-loadComponent('title');
+loadComponent('home');
