@@ -6,12 +6,12 @@ window.addEventListener('load', () => {
 
 // Show/hide the offline message based on the connection status
 function updateOfflineStatus() {
-const offlineMessage = document.getElementById('offline-message');
-if (navigator.onLine) {
-offlineMessage.style.display = 'none';
-} else {
-offlineMessage.style.display = 'block';
-}
+  const offlineMessage = document.getElementById('offline-message');
+  if (navigator.onLine) {
+    offlineMessage.style.display = 'none';
+  } else {
+    offlineMessage.style.display = 'block';
+  }
 }
 
 // Call updateOfflineStatus initially and add event listeners for future updates
@@ -36,7 +36,10 @@ function loadComponent(componentName, showNavBar) {
         navBar.style.display = 'none';
       }
       // Load the associated JavaScript for the component
-
+      const scripts = appContainer.getElementsByTagName('script');
+      for (let i = 0; i < scripts.length; i++) {
+        eval(scripts[i].innerHTML);
+      }
       // You may also initialize any JavaScript functionality specific to the component here
     })
     .catch((error) => {
