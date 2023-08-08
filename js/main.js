@@ -48,4 +48,51 @@ function loadComponent(componentName, showNavBar) {
 }
 
 // Example: Load the login component with the navbar hidden
-loadComponent('swoosh', false);
+loadComponent('home', true);
+
+
+
+
+
+const bottomSheet = document.querySelector('.bottom-sheet');
+let startY = 0;
+let isDragging = false;
+
+function showBottomSheet() {
+  bottomSheet.style.bottom = '0';
+}
+
+function hideBottomSheet() {
+  bottomSheet.style.bottom = '-100%';
+}
+
+function handleTouchStart(event) {
+  startY = event.touches[0].clientY;
+  isDragging = true;
+}
+
+function handleTouchMove(event) {
+  if (!isDragging) return;
+
+  const deltaY = event.touches[0].clientY - startY;
+  if (deltaY > 0) {
+    bottomSheet.style.bottom = `-${deltaY}px`;
+  }
+}
+
+function handleTouchEnd(event) {
+  if (!isDragging) return;
+
+  isDragging = false;
+  const deltaY = event.changedTouches[0].clientY - startY;
+  if (deltaY > 100) {
+    hideBottomSheet();
+  } else {
+    bottomSheet.style.bottom = '0';
+  }
+}
+
+document.querySelector('.open-button').addEventListener('click', showBottomSheet);
+bottomSheet.addEventListener('touchstart', handleTouchStart);
+bottomSheet.addEventListener('touchmove', handleTouchMove);
+bottomSheet.addEventListener('touchend', handleTouchEnd);
