@@ -35,6 +35,7 @@ function loadComponent(componentName, showNavBar) {
       } else {
         navBar.style.display = 'none';
       }
+      // Load the associated JavaScript for the component
 
       // You may also initialize any JavaScript functionality specific to the component here
     })
@@ -44,4 +45,4 @@ function loadComponent(componentName, showNavBar) {
 }
 
 // Example: Load the login component with the navbar hidden
-loadComponent('home', true);
+loadComponent('temp', false);
