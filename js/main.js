@@ -48,7 +48,7 @@ function loadComponent(componentName, showNavBar) {
 }
 
 // Example: Load the login component with the navbar hidden
-loadComponent('temp', false);
+loadComponent('home', true);
 
 
 
