@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+    <head></head>
+    <body>
+        <h1>MongoDB with Netlify Functions</h1>
+        <ul id="movies"></ul>
+        <script>
+            (async () => {
+                let results = await fetch("/.netlify/functions/get_movies").then(response => response.json());
+                results.forEach(result => {
+                    const listItem = document.createElement("li");
+                    const listImg = document.createElement("img");
+                    listImg.src = result.poster;
+                    listItem.innerText = result.title;
+                    document.getElementById("movies").appendChild(listItem);
+                    document.getElementById("movies").appendChild(listImg);
+                });
+            })();
+        </script>
+    </body>
+</html>
