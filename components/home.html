@@ -1,33 +1,66 @@
-<div class="search-container">
-    <input type="search" class="apple-search-input" placeholder="Search">
-</div>
+<div id="searchContainer" class="search-container flex flex-col justify-center">
+    <div class="relative mx-4 mt-2 h-full">
+        <input id="searchBarLarge" type="search"
+            class="apple-search-input px-3 py-2 h-[42px] text-base border border-gray-300 rounded-lg bg-gray-100 text-gray-700 w-full"
+            placeholder="Search">
+        <div id="searchBar" class="hidden">
+            <div class="flex items-center">
+                <input type="search"
+                    class="apple-search-input px-3 py-2 h-[42px] text-base border border-gray-300 rounded-lg bg-gray-100 text-gray-700 w-9/12"
+                    placeholder="Search">
+                <p id='cancelSearch' class="ml-5 text-white tracking-[1.5px]">Cancel</p>
+            </div>
 
+        </div>
+        <div id="resultsContainer" class="w-full h-full my-5 hidden">
+            <div class="mx-2 mt-5 h-full">
+                <div class="rounded-2xl w-full h-16 flex justify-start items-center">
+                    <img class="object-cover rounded-full h-[54px] w-[54px] ml-1.5" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80">
+                    <div class="text-white font-light">
+                        <p>
+                            Hannah DeRios
+                        </p>
+                        <p>
+                            User Experience Designer
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 <div class="mx-4 my-5">
-    <img class="rounded-xl object-cover h-40 w-full" src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80">
+    <img class="rounded-xl object-cover h-40 w-full"
+        src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80">
 </div>
 
 <div class="ml-4 my-5 flex gap-4 overflow-x-scroll">
     <div class="w-20 h-20 min-w-[80px]">
-        <img class="w-full h-full rounded-full object-cover" src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
+        <img class="w-full h-full rounded-full object-cover"
+            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
     </div>
     <div class="w-20 h-20 min-w-[80px]">
-        <img class="w-full h-full rounded-full object-cover" src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
+        <img class="w-full h-full rounded-full object-cover"
+            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
     </div>
     <div class="w-20 h-20 min-w-[80px]">
-        <img class="w-full h-full rounded-full object-cover" src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
-    </div> 
+        <img class="w-full h-full rounded-full object-cover"
+            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
+    </div>
     <div class="w-20 h-20 min-w-[80px]">
-        <img class="w-full h-full rounded-full object-cover" src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
-    </div> 
+        <img class="w-full h-full rounded-full object-cover"
+            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
+    </div>
     <div class="w-20 h-20 min-w-[80px]">
-        <img class="w-full h-full rounded-full object-cover" src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
-    </div> 
+        <img class="w-full h-full rounded-full object-cover"
+            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
+    </div>
     <div class="w-20 h-20 min-w-[80px]">
-        <img class="w-full h-full rounded-full object-cover" src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
-    </div> 
+        <img class="w-full h-full rounded-full object-cover"
+            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
+    </div>
 </div>
 <style>
-    
     .shadow-inner {
         box-shadow: inset 0 -60px 40px 0 rgba(0, 0, 0, 0.8);
     }
@@ -46,8 +79,8 @@
             <p class="text-[10px] opacity-75 text-white">@avareynolds • 2 hours ago</p>
         </div>
     </div>
-    
-    
+
+
     <div class="relative bg-gray-500 rounded-[14px] max-w-[188px] row-span-1">
         <div class="absolute inset-0 flex items-center justify-center">
             <img class="object-cover h-full w-full rounded-[14px]" src="https://i.ibb.co/XtmjDMB/image-2-4.png">
@@ -89,7 +122,28 @@
     </div>
 </div>
 
+<script>
+    const toggleSearch = () => {
+        const targetElement = document.getElementById('searchBar');
+        targetElement.classList.toggle('hidden');
+        const targetElement2 = document.getElementById('searchBarLarge');
+        targetElement2.classList.toggle('hidden');
+        const targetElement4 = document.getElementById('resultsContainer');
+        targetElement4.classList.toggle('hidden');
+        const targetElement3 = document.getElementById('searchContainer');
+        targetElement3.classList.toggle('h-screen');
+        targetElement3.classList.toggle('absolute');
+        targetElement3.classList.toggle('top-0');
+        targetElement3.classList.toggle('left-0');
+        targetElement3.classList.toggle('max-w-md');
+        targetElement3.classList.toggle('w-full');
+        targetElement3.classList.toggle('bg-[#111111]');
+        targetElement3.classList.toggle('z-40');
+        // Add more classes to toggle as needed
+    };
 
-
-
-
+    const toggleButton2 = document.getElementById('cancelSearch');
+    toggleButton2.addEventListener('click', toggleSearch);
+    const toggleButton = document.getElementById('searchBarLarge');
+    toggleButton.addEventListener('click', toggleSearch);
+</script>
