@@ -327,6 +327,7 @@
     toggleButton2.addEventListener('click', function () {
         abortController.abort();
         loading.classList.add('hidden');
+        userList.innerHTML = "";
     });
     const toggleButton = document.getElementById('searchBarLarge');
     toggleButton.addEventListener('mousedown', toggleSearch);
