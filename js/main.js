@@ -53,7 +53,6 @@ loadComponent('home', true);
 
 
 
-
 const bottomSheet = document.querySelector('.bottom-sheet');
 let startY = 0;
 let isDragging = false;

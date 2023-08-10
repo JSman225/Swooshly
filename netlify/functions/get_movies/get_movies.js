@@ -6,8 +6,8 @@ const clientPromise = mongoClient.connect();
 
 const handler = async (event) => {
     try {
-        const database = (await clientPromise).db(process.env.MONGODB_DATABASE);
-        const collection = database.collection(process.env.MONGODB_COLLECTION);
+        const database = (await clientPromise).db('swooshly_user_data');
+        const collection = database.collection('users');
         const results = await collection.find({}).limit(10).toArray();
         return {
             statusCode: 200,

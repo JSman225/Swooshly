@@ -5,22 +5,55 @@
             placeholder="Search">
         <div id="searchBar" class="hidden">
             <div class="flex items-center">
-                <input type="search"
-                    class="apple-search-input px-3 py-2 h-[42px] text-base border border-gray-300 rounded-lg bg-gray-100 text-gray-700 w-9/12"
-                    placeholder="Search">
+                <style>
+                    .focusNone:focus {
+                        outline: none;
+                    }
+                </style>
+                <div class="relative flex items-center w-9/12 border h-[42px] border-gray-300 rounded-lg bg-gray-100">
+                    <input type="search" id="searchInput"
+                        class="apple-search-input px-3 py-2 focusNone text-base bg-gray-100 rounded-lg text-gray-700 w-full"
+                        placeholder="Search">
+                    <svg id="searchIcon" class="w-6 h-6 mr-5" xmlns="http://www.w3.org/2000/svg" fill="none"
+                        viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+                    </svg>
+                </div>
                 <p id='cancelSearch' class="ml-5 text-white tracking-[1.5px]">Cancel</p>
             </div>
 
         </div>
         <div id="resultsContainer" class="w-full h-full my-5 hidden">
-            <div class="mx-2 mt-5 h-full">
+            <div id="loading" class="w-full hidden">
+                <svg class="mx-auto" width="75" height="75" version="1.1" id="L5" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
+                    enable-background="new 0 0 0 0" xml:space="preserve">
+                    <circle fill="#fff" stroke="none" cx="6" cy="50" r="6">
+                        <animateTransform attributeName="transform" dur="1s" type="translate"
+                            values="0 15 ; 0 -15; 0 15" repeatCount="indefinite" begin="0.1" />
+                    </circle>
+                    <circle fill="#fff" stroke="none" cx="30" cy="50" r="6">
+                        <animateTransform attributeName="transform" dur="1s" type="translate"
+                            values="0 10 ; 0 -10; 0 10" repeatCount="indefinite" begin="0.2" />
+                    </circle>
+                    <circle fill="#fff" stroke="none" cx="54" cy="50" r="6">
+                        <animateTransform attributeName="transform" dur="1s" type="translate" values="0 5 ; 0 -5; 0 5"
+                            repeatCount="indefinite" begin="0.3" />
+                    </circle>
+                </svg>
+                <p class="text-center w-16" id="holdOnMessage"></p>
+            </div>
+            <div id="userList" class="mt-5 h-full">
                 <div class="rounded-2xl w-full h-16 flex justify-start items-center">
-                    <img class="object-cover rounded-full h-[54px] w-[54px] ml-1.5" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80">
-                    <div class="text-white font-light">
-                        <p>
+                    <img id="img" class="object-cover rounded-full h-[54px] w-[54px] ml-1.5"
+                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80">
+                    <div class="text-white font-light ml-3">
+                        <p id="name" class="flex gap-1">
                             Hannah DeRios
+                            <img id="verrified" width="20" height="20" src="../assets/blue_check.svg">
                         </p>
-                        <p>
+                        <p id="username" class="text-xs opacity-75">
                             User Experience Designer
                         </p>
                     </div>
@@ -29,6 +62,7 @@
         </div>
     </div>
 </div>
+
 <div class="mx-4 my-5">
     <img class="rounded-xl object-cover h-40 w-full"
         src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80">
@@ -123,11 +157,138 @@
 </div>
 
 <script>
+
+    function getRandomHoldOnMessage() {
+        const messages = [
+            "Almost there, just a sec!",
+            "Hold tight, we're on it!",
+            "Patience, it's coming!",
+            "Wait up, it's happening!",
+            "A quick pause, be ready!",
+            "Just a moment, stay tuned!",
+            "Almost done, stay patient!",
+            "Coming right up, stay put!",
+            "On the way, one sec!",
+            "Hold on, it's close!",
+            "Be patient, we're fast!",
+            "Nearly there, hang on!",
+            "Stay tuned, it's near!",
+            "Hold up, it's coming!",
+            "A sec away, stay calm!",
+            "Coming soon, stay ready!",
+            "Be ready, it's close!",
+            "Almost ready, stay excited!",
+            "Stay with us, it's close!",
+            "Hold on, it's here soon!"
+        ];
+
+
+        const randomIndex = Math.floor(Math.random() * messages.length);
+        return messages[randomIndex];
+    }
+
+    const abortController = new AbortController();
+    const signal = abortController.signal;
+
+
+
+
+    const searchInput = document.getElementById("searchInput");
+    const loading = document.getElementById('loading');
+    function isBlankOrWhitespace(str) {
+        return str.trim() === '';
+    }
+
+    function search() {
+
+        var searchTerm = searchInput.value;
+
+        if (isBlankOrWhitespace(searchTerm)){
+            searchInput.value = '';
+            return;
+        }
+
+
+            userList.innerHTML = "";
+
+        loading.classList.remove('hidden');
+        document.getElementById('holdOnMessage').innerHTML = getRandomHoldOnMessage();
+
+
+        // Create a new AbortController instance
+
+        fetch(`/.netlify/functions/search_users?q=${searchTerm}`, { signal })
+            .then(response => response.json())
+            .then(data => {
+                const userList = document.getElementById("userList");
+
+                data.forEach(user => {
+                    const userDiv = document.createElement("div");
+                    userDiv.className = "rounded-2xl w-full h-16 flex justify-start items-center";
+
+                    const userImg = document.createElement("img");
+                    userImg.className = "object-cover rounded-full h-[54px] w-[54px] ml-1.5";
+                    userImg.src = user.profilePicture;
+
+                    const userInfoDiv = document.createElement("div");
+                    userInfoDiv.className = "text-white font-light ml-3";
+
+                    const userName = document.createElement("p");
+                    userName.className = "flex gap-1";
+                    userName.innerText = user.name;
+
+                    const verifiedImg = document.createElement("img");
+                    verifiedImg.width = 20;
+                    verifiedImg.height = 20;
+                    if (user.verified) {
+                        verifiedImg.src = "../assets/blue_check.svg";
+                    } else {
+                        verifiedImg.src = "../assets/gray_check.svg";
+                    }
+
+                    userName.appendChild(verifiedImg);
+
+                    const userUsername = document.createElement("p");
+                    userUsername.className = "text-xs opacity-75";
+                    userUsername.innerText = user.username;
+
+                    userInfoDiv.appendChild(userName);
+                    userInfoDiv.appendChild(userUsername);
+
+                    userDiv.appendChild(userImg);
+                    userDiv.appendChild(userInfoDiv);
+
+                    loading.classList.add('hidden');
+
+                    userList.appendChild(userDiv);
+                });
+            })
+            .catch(error => {
+                console.error("An error occurred:", error);
+                // Handle the error gracefully
+                // ...
+            });
+    }
+    searchInput.addEventListener("keydown", function (event) {
+        if (event.key === "Enter") {
+            // Prevent the default action of the "Enter" key (e.g., form submission)
+            event.preventDefault();
+            search();
+        }
+    });
+    document.getElementById('searchIcon').addEventListener("click", function (event) {
+        search();
+    });
+
     const toggleSearch = () => {
         const targetElement = document.getElementById('searchBar');
         targetElement.classList.toggle('hidden');
         const targetElement2 = document.getElementById('searchBarLarge');
         targetElement2.classList.toggle('hidden');
+
+        // Focus the real input
+        searchBar.focus();
+
         const targetElement4 = document.getElementById('resultsContainer');
         targetElement4.classList.toggle('hidden');
         const targetElement3 = document.getElementById('searchContainer');
@@ -144,6 +305,9 @@
 
     const toggleButton2 = document.getElementById('cancelSearch');
     toggleButton2.addEventListener('click', toggleSearch);
+    toggleButton2.addEventListener('click', function () {
+        abortController.abort();
+    });
     const toggleButton = document.getElementById('searchBarLarge');
-    toggleButton.addEventListener('click', toggleSearch);
+    toggleButton.addEventListener('mousedown', toggleSearch);
 </script>
