@@ -44,23 +44,30 @@
                 </svg>
                 <p class="text-center w-16 text-white" id="holdOnMessage"></p>
             </div>
-            <div id="recentList">
-                <div class="rounded-2xl w-full h-16 flex justify-start items-center">
-                    <img id="img" class="object-cover rounded-full h-[54px] w-[54px] ml-1.5"
-                        src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80">
-                    <div class="text-white font-light ml-3">
-                        <p id="name" class="flex gap-1">
-                            Hannah DeRios
-                            <img id="verrified" width="20" height="20" src="../assets/blue_check.svg">
-                        </p>
-                        <p id="username" class="text-xs opacity-75">
-                            User Experience Designer
-                        </p>
+
+            <div id="userList" class="mt-5">
+
+            </div>
+            <div id="recentListContainer">
+                <p class="text-md opacity-75 text-white">Recent searches</p>
+                <div id="recentList">
+                    <div class="rounded-2xl w-full h-16 flex justify-start items-center">
+                        <img id="img" class="object-cover rounded-full h-[54px] w-[54px] ml-1.5"
+                            src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80">
+                        <div class="text-white font-light ml-3">
+                            <p id="name" class="flex gap-1">
+                                Hannah DeRios
+                                <img id="verrified" width="20" height="20" src="../assets/blue_check.svg">
+                            </p>
+                            <p id="username" class="text-xs opacity-75">
+                                User Experience Designer
+                            </p>
+                        </div>
+                        <svg class="w-6 h-6 text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>                          
                     </div>
                 </div>
-            </div>
-            <div id="userList" class="mt-5 h-full">
-
             </div>
         </div>
     </div>
@@ -71,7 +78,7 @@
         src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80">
 </div>
 
-<div class="ml-4 my-5 flex gap-4 overflow-x-hidden">
+<div class="ml-4 my-5 flex gap-4 overflow-x-scroll">
     <div class="w-20 h-20 min-w-[80px]">
         <img class="w-full h-full rounded-full object-cover"
             src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80">
@@ -103,7 +110,7 @@
     }
 </style>
 <div class="mx-4 my-5 grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-[10px]" style="grid-auto-rows: 188px;">
-    <div class="relative bg-gray-500 rounded-[14px] max-w-[188px] row-span-2">
+    <div class="relative bg-gray-500 rounded-[14px] max-w-[188px] row-span-2 hover:rounded-2xl">
         <div class="absolute inset-0 flex items-center justify-center">
             <img class="object-cover h-full w-full rounded-[14px]" src="https://i.ibb.co/XtmjDMB/image-2-4.png">
         </div>
@@ -251,10 +258,10 @@
                     const verifiedImg = document.createElement("img");
                     verifiedImg.width = 20;
                     verifiedImg.height = 20;
-                    if (user.verified) {
+                    if (user.verified === "true") {
                         verifiedImg.src = "../assets/blue_check.svg";
                     } else {
-                        verifiedImg.src = "../assets/gray_check.svg";
+                        verifiedImg.classList.add('hidden');
                     }
 
                     userName.appendChild(verifiedImg);
