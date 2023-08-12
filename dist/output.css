@@ -859,6 +859,14 @@ video {
   margin-bottom: 0.75rem;
 }
 
+.mb-0{
+  margin-bottom: 0px;
+}
+
+.mb-0\.5{
+  margin-bottom: 0.125rem;
+}
+
 .box-border{
   box-sizing: border-box;
 }
@@ -1040,6 +1048,10 @@ video {
   height: 100vh;
 }
 
+.h-\[72px\]{
+  height: 72px;
+}
+
 .w-10{
   width: 2.5rem;
 }
@@ -1114,6 +1126,10 @@ video {
 
 .w-screen{
   width: 100vw;
+}
+
+.w-\[72px\]{
+  width: 72px;
 }
 
 .min-w-\[80px\]{
