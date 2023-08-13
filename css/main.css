@@ -3,6 +3,17 @@
 body{
   font-family: 'Lexend Deca', sans-serif;
 }
+
+
+img {
+  user-select: none;
+  /* Standard syntax */
+  -webkit-user-drag: none;
+  /* Safari/Chrome */
+  -webkit-touch-callout: none;
+  /* Disable long-press on iOS Safari */
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

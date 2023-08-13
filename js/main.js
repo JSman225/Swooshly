@@ -48,9 +48,7 @@ function loadComponent(componentName, showNavBar) {
 }
 
 // Example: Load the login component with the navbar hidden
-loadComponent('notification', true);
-
-
+loadComponent('home', true);
 
 
 const bottomSheet = document.querySelector('.bottom-sheet');
