@@ -314,6 +314,15 @@
 
         // Focus the real input
         searchBar.focus();
+// Get a reference to the input field
+
+// Trigger a click event on the input field
+var clickEvent = new MouseEvent('click', {
+  view: window,
+  bubbles: true,
+  cancelable: true
+});
+searchBar.dispatchEvent(clickEvent);
 
         const targetElement4 = document.getElementById('resultsContainer');
         targetElement4.classList.toggle('hidden');
