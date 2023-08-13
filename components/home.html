@@ -312,17 +312,6 @@
         const targetElement2 = document.getElementById('searchBarLarge');
         targetElement2.classList.toggle('hidden');
 
-        // Focus the real input
-        searchBar.focus();
-// Get a reference to the input field
-
-// Trigger a click event on the input field
-var clickEvent = new MouseEvent('click', {
-  view: window,
-  bubbles: true,
-  cancelable: true
-});
-searchBar.dispatchEvent(clickEvent);
 
         const targetElement4 = document.getElementById('resultsContainer');
         targetElement4.classList.toggle('hidden');
@@ -335,6 +324,19 @@ searchBar.dispatchEvent(clickEvent);
         targetElement3.classList.toggle('w-full');
         targetElement3.classList.toggle('bg-[#111111]');
         targetElement3.classList.toggle('z-40');
+        
+                // Focus the real input
+        searchBar.focus();
+// Get a reference to the input field
+
+// Trigger a click event on the input field
+var clickEvent = new MouseEvent('click', {
+  view: window,
+  bubbles: true,
+  cancelable: true
+});
+searchBar.dispatchEvent(clickEvent);
+        
         // Add more classes to toggle as needed
     };
 
