@@ -764,10 +764,6 @@ video {
   margin: 1rem;
 }
 
-.m-auto{
-  margin: auto;
-}
-
 .mx-4{
   margin-left: 1rem;
   margin-right: 1rem;
@@ -980,10 +976,6 @@ video {
 
 .h-10{
   height: 2.5rem;
-}
-
-.h-12{
-  height: 3rem;
 }
 
 .h-14{

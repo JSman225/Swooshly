@@ -48,7 +48,7 @@
 
             </div>
             <div id="recentListContainer">
-                <p class="text-md opacity-75 text-white font-semibold">Recent searches</p>
+                <p class="text-md opacity-75 text-white font-sans font-semibold">Recent searches</p>
                 <div class="mt-4" id="recentList">
                     <div class="rounded-2xl w-full h-16 flex justify-start items-center">
                         <img id="img" class="object-cover rounded-full h-[54px] w-[54px] ml-1.5"
@@ -230,6 +230,7 @@
         fetch(`/.netlify/functions/search_users?q=${searchTerm}`, { signal })
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 const userList = document.getElementById("userList");
                 loading.classList.add('hidden');
                 if (data.length === 0){
@@ -305,6 +306,92 @@
         search();
       
     });
+
+
+
+
+
+
+
+
+
+
+
+// Function to call the serverless function
+async function fetchSearchResults(query) {
+    var searchTerm = query;
+
+if (isBlankOrWhitespace(searchTerm)){
+    searchInput.value = '';
+    return;
+}
+
+  try {
+    const response = await fetch(`/.netlify/functions/fast_search?q=${searchTerm}`, { signal })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Search results:', data);
+            });
+   
+    // Do something with the results, e.g., update UI
+  } catch (error) {
+    console.error('Error searching:', error);
+  }
+}
+// Debounce function with immediate invocation option
+function debounce(func, delay, immediate) {
+  let timeoutId;
+  return function (...args) {
+    const context = this;
+
+    const later = () => {
+      timeoutId = null;
+      if (!immediate) {
+        func.apply(context, args);
+      }
+    };
+
+    const callNow = immediate && !timeoutId;
+
+    clearTimeout(timeoutId);
+    timeoutId = setTimeout(later, delay);
+
+    if (callNow) {
+      func.apply(context, args);
+    }
+  };
+}
+
+// Debounce input and call the serverless function
+const debouncedFetch = debounce(fetchSearchResults, 300);
+
+// Attach an event listener to the input field
+searchInput.addEventListener('input', (event) => {
+  const query = event.target.value;
+
+  // Only trigger the search when there are at least 2 letters
+  if (query.length >= 2) {
+    debouncedFetch(query);
+  } else {
+    // Clear previous search results or take other appropriate action
+    // For example: clearResults();
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     const toggleSearch = () => {
         const targetElement = document.getElementById('searchBar');
