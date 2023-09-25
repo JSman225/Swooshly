@@ -7,6 +7,6 @@
     "tailwindcss": "^3.3.3"
   },
   "scripts": {
-    "build": "next build"
+    "build": "cd app && npm run build"
   }
 }
