@@ -1,3 +1,2 @@
 [build]
-  command = "npm run build"  # Adjust this command based on your Next.js project's build script
-  publish = "app/build"        # Publish the output from the specified directory
+base: "/app"
