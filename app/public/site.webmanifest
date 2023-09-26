@@ -1,7 +1,11 @@
 {
     "name": "Swooshly",
     "short_name": "Swooshly",
+<<<<<<< Updated upstream:site/site.webmanifest
     "start_url": "app", 
+=======
+    "start_url": "pwa", 
+>>>>>>> Stashed changes:app/public/site.webmanifest
     "theme_color": "#111111",
     "background_color": "#111111",
     "display": "standalone",

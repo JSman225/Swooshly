@@ -1,12 +1,12 @@
 // service-worker.js
-const cacheName = 'my-cache-v5'; // Update the cache name when the cache needs to be updated
+const cacheName = 'Swooshly v1.0'; // Update the cache name when the cache needs to be updated
 
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(cacheName).then(cache => {
       return cache.addAll([
         // List of file URLs to cache
-        '/app.html'
+        '/pwa'
       ]);
     })
   );
@@ -54,20 +54,4 @@ self.addEventListener('fetch', event => {
       });
     })
   );
-});
-
-const button = document.getElementById("subscribe");
-button.addEventListener("click", async () => {
-  // Triggers popup to request access to send notifications
-  const result = await window.Notification.requestPermission();
-
-  // If the user rejects the permission result will be "denied"
-  if (result === "granted") {
-    // You must use the service worker notification to show the notification
-    // Using new Notification("Hello World", { body: "My first notification on iOS"}) does not work on iOS
-    // despite working on other platforms
-    await registration.showNotification("Hello World", {
-      body: "My first notification on iOS",
-    });
-  }
 });
