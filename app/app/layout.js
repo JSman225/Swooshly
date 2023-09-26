@@ -169,7 +169,7 @@ export default function RootLayout({ children }) {
         <div className="overflow-y-hidden" id="app">
           {children}
         </div>
-        <div className="bg-[#000000] flex justify-center h-20 w-full fixed bottom-0 max-w-md z-50" id="nav-bar">
+        <div className="bg-[#000000] flex justify-center h-20 w-full fixed bottom-0 max-w-md z-50 shadow-[0px_-5px_40px_0px_#f7fafc]" id="nav-bar">
           <div className="flex w-[85%] h-14 justify-center items-center gap-10 text-white">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
               className="w-10 h-10 open-button">
