@@ -1,3 +1,7 @@
-import { register } from 'service-worker';
-
-register('/service-worker.js');
+useEffect(() => {
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker
+        .register('/service-worker.js')
+        .then((registration) => console.log('scope is: ', registration.scope));
+    }
+  }, []);
