@@ -1,6 +1,6 @@
 const { MongoClient } = require("mongodb");
 
-const mongoClient = new MongoClient(process.env.MONGODB_URI);
+const mongoClient = new MongoClient('mongodb+srv://leonardikarl:hvX91y0gskxo39aF@swooshly.tcrshyy.mongodb.net/?retryWrites=true');
 
 const clientPromise = mongoClient.connect();
 
