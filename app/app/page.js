@@ -1,5 +1,6 @@
 'use client'
 import dynamic from "next/dynamic";
+import './/service-worker.js';
 const PWAPrompt = dynamic(() => import('react-ios-pwa-prompt'), { ssr: false, });
 
 export default function Home() {
