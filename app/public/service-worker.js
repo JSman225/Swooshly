@@ -58,7 +58,7 @@ self.addEventListener('install', event => {
         '/splash_screens/iPad_9.7__iPad_Air__iPad_Air_2__iPad_Mini_2__iPad_Mini_3__iPad_Mini_4__iPad_Pro_12.9_landscape.png',
         '/splash_screens/iPad_9.7__iPad_Air__iPad_Air_2__iPad_Mini_2__iPad_Mini_3__iPad_Mini_4__iPad_Pro_9.7_portrait.png',
         '/splash_screens/iPad_9.7__iPad_Air__iPad_Air_2__iPad_Mini_2__iPad_Mini_3__iPad_Mini_4__iPad_Pro_9.7_landscape.png',
-        '/pwa'
+        '/app'
       ]);
     })
   );
