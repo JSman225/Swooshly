@@ -1,9 +1,20 @@
 'use client'
 import dynamic from "next/dynamic";
-import './/service-worker.js';
+import { useEffect } from 'react';
 const PWAPrompt = dynamic(() => import('react-ios-pwa-prompt'), { ssr: false, });
 
 export default function Home() {
+    useEffect(() => {
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js').then(registration => {
+              console.log('Service Worker registered with scope:', registration.scope);
+            }).catch(error => {
+              console.log('Service Worker registration failed:', error);
+            });
+          });
+        }
+      }, []);
     return (
         <>
             <PWAPrompt
