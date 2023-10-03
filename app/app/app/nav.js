@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+
 export default function Nav() {
     return (
         <div className="bg-[#000000] flex justify-center h-20 w-full fixed bottom-0 max-w-md z-50" id="nav-bar">
