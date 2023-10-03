@@ -8,8 +8,6 @@ export default function Home() {
     
     if (!navigator.share || !navigator.canShare) return alert(errorMessage);
     
-      if (!navigator.canShare({ files })) return alert(errorMessage);
-    
       try {
         navigator.share({
           title: 'Share',
