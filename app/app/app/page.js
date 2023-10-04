@@ -5,8 +5,23 @@ import { useEffect } from 'react';
 export default function Home() {
   useEffect(() => {
     console.log("we got here");
-    screen.orientation.lock();   // webkit only
-    screen.lockOrientation("orientation");
+    const lockScreen = () => {
+      if (screen.orientation.lock) {
+        screen.orientation.lock('portrait');
+      } else if (screen.lockOrientation) {
+        screen.lockOrientation('portrait');
+      } else if (screen.mozLockOrientation) {
+        screen.mozLockOrientation('portrait');
+      } else if (screen.msLockOrientation) {
+        screen.msLockOrientation('portrait');
+      } else if (screen.orientation && screen.orientation.type === 'landscape-primary') {
+        screen.orientation.lock('portrait-primary');
+      } else if (screen.orientation && screen.orientation.type === 'landscape-secondary') {
+        screen.orientation.lock('portrait-secondary');
+      }
+    }
+
+    lockScreen();
     // left: 37, up: 38, right: 39, down: 40,
     // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
     var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
