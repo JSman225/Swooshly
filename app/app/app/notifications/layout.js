@@ -4,7 +4,7 @@ import Nav from '../nav'
 
 
 
-export default function RootLayout({ children }) {
+export default function Layout({ children }) {
   return (
     <html lang="en">
       <head>
