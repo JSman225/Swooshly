@@ -126,7 +126,7 @@ export default function Layout({ children }) {
           href="/splash_screens/8.3__iPad_Mini_portrait.png"></link>
         <title>Swooshly</title>
       </head>
-      <body className="bg-[#111111] w-full h-screen max-w-md overflow-y-hidden">
+      <body className="bg-[#111111] w-full h-screen max-w-md overflow-hidden rounded-top">
         {children}
 
         <Nav />
@@ -148,8 +148,6 @@ export default function Layout({ children }) {
           </button>
           <button className="text-white opacity-90 tracking-[1.1px]">Close</button>
         </div>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css" />
-        <script src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
       </body>
     </html>
   )
