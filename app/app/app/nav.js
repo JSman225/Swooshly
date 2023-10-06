@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function Nav() {
     return (
         <div className="bg-[#000000] flex justify-center h-24 w-full fixed bottom-0 max-w-md z-50 rounded-top-mega" id="nav-bar">
-            <div className="flex w-[85%] h-14 mt-4 justify-center items-center gap-11 text-white">
+            <div className="flex w-[90%] h-14 mt-4 justify-center items-center gap-9 text-white">
                 <Link href="/app/share">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
                         className="w-9 h-9 open-button">
