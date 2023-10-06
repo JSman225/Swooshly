@@ -126,8 +126,8 @@ export default function RootLayout({ children }) {
     href="/splash_screens/8.3__iPad_Mini_portrait.png"></link>
   <title>Swooshly</title>
       </head>
-      <body className="bg-[#111111] w-full h-screen max-w-md">
-        <div className="overflow-y-hidden" id="app">
+      <body className="bg-[#111111] w-full h-screen max-w-md rounded-top">
+        <div className="overflow-y-hidden rounded-top" id="app">
           {children}
         </div>
 
