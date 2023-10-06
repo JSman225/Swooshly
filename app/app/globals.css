@@ -1,7 +1,10 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+html{
+  min-height: -webkit-fill-available;
+}
+body { height: calc(100% + 193px); }
 @supports(padding:max(0px)) {
   body, header, footer {
       padding-left: min(0vmin, env(safe-area-inset-left));
