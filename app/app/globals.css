@@ -1,19 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html{
-  min-height: -webkit-fill-available;
+
+html {
+  -webkit-border-top-left-radius: 12px;
+  -moz-border-top-left-radius: 12px;
+  border-top-left-radius: 12px;
+  -webkit-border-top-right-radius: 12px;
+  -moz-border-top-right-radius: 12px;
+  border-top-right-radius: 12px;
 }
-body { height: calc(100% + 193px); }
-@supports(padding:max(0px)) {
-  body, header, footer {
-      padding-left: min(0vmin, env(safe-area-inset-left));
-      padding-right: min(0vmin, env(safe-area-inset-right));
-  }
-}
+
 .shadow-inner {
   box-shadow: inset 0 -60px 40px 0 rgba(0, 0, 0, 0.8);
 }
+
 .swipe-container::-webkit-scrollbar {
   display: none;
 }
