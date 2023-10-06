@@ -126,7 +126,7 @@ export default function Layout({ children }) {
           href="/splash_screens/8.3__iPad_Mini_portrait.png"></link>
         <title>Swooshly</title>
       </head>
-      <body className="bg-[#111111] w-full h-screen max-w-md overflow-y-hidden">
+      <body className="bg-[#111111] w-full h-screen max-w-md overflow-hidden rounded-top">
         {children}
 
         <Nav />
