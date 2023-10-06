@@ -1,9 +1,12 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-html{
-  min-height: calc(100% + env(safe-area-inset-top));
-  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+
+@supports(padding:max(0px)) {
+  body, header, footer {
+      padding-left: min(0vmin, env(safe-area-inset-left));
+      padding-right: min(0vmin, env(safe-area-inset-right));
+  }
 }
 .shadow-inner {
   box-shadow: inset 0 -60px 40px 0 rgba(0, 0, 0, 0.8);

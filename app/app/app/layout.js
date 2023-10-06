@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
       <head>
         <meta charset="UTF-8"></meta>
         <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
-        <meta name="viewport" content="initial-scale=1, viewport-fit=cover, width=device-width, user-scalable=no"></meta>
+        <meta name="viewport" content="initial-scale=1, width=device-width, user-scalable=no, viewport-fit=cover"></meta>
         <meta name="apple-mobile-web-app-capable" content="yes"></meta>
         <meta name="apple-mobile-web-app-capable" content="yes"></meta>
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"></meta>
