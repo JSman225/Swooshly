@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-html {
-  -webkit-border-top-left-radius: 12px;
-  -moz-border-top-left-radius: 12px;
-  border-top-left-radius: 12px;
-  -webkit-border-top-right-radius: 12px;
-  -moz-border-top-right-radius: 12px;
-  border-top-right-radius: 12px;
+.rounded-top {
+  -webkit-border-top-left-radius: 14px;
+  -moz-border-top-left-radius: 14px;
+  border-top-left-radius: 14px;
+  -webkit-border-top-right-radius: 14px;
+  -moz-border-top-right-radius: 14px;
+  border-top-right-radius: 14px;
 }
 
 .shadow-inner {
