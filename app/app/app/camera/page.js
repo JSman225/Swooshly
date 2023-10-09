@@ -14,12 +14,50 @@ try {
   alert(GENERIC_ERROR_RETRY);
 }*/
 'use client'
+import { useRef, useState, useEffect } from "react";
 
-export default function Home() {
+export default function Camera() {
+  const [mediaStream, setMediaStream] = useState();
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    // Moved to inside of useEffect because this function is depended on `mediaStream`
+    async function setupWebcamVideo() {
+      if (!mediaStream) {
+        await setupMediaStream();
+      } else {
+        const videoCurr = videoRef.current;
+        if (!videoCurr) return;
+        const video = videoCurr;
+        if (!video.srcObject) {
+          video.srcObject = mediaStream;
+        }
+      }
+    }
+    setupWebcamVideo();
+  }, [mediaStream]);
+
+  async function setupMediaStream() {
+    try {
+      const ms = await navigator.mediaDevices.getUserMedia({
+        video: { facingMode: "user" },
+        audio: true
+      });
+      setMediaStream(ms);
+    } catch (e) {
+      alert("Camera is disabled");
+      throw e;
+    }
+  }
   return (
     <main className="overflow-hidden rounded-top w-full h-full">
-      <img className="w-full h-[calc(100%-80px)] object-cover rounded-top" src="/profiles/0.jpg" />
-      <div class="absolute top-4 left-4 w-12 h-12 bg-slate-100/70 rounded-full">
+      <video className="flipped w-full mx-auto h-[calc(100%-80px)] object-cover rounded-top" ref={videoRef} autoPlay muted />
+      <div className="relative bottom-20">
+        <svg className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" height="100" width="100">
+          <circle cx="50" cy="50" r="34" stroke="white" strokeWidth="6" fillOpacity="0%" />
+        </svg>
+      </div>
+      <div className="absolute top-4 left-4 w-12 h-12 bg-neutral-900/20 rounded-full">
 
       </div>
     </main>
