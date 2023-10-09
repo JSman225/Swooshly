@@ -51,32 +51,6 @@ export default function Camera() {
     }
   }
 
-  function handleVideoClick(event) {
-    const video = videoRef.current;
-    if (!video) return;
-  
-    const { videoWidth, videoHeight } = video;
-    const x = event.offsetX / video.clientWidth;
-    const y = event.offsetY / video.clientHeight;
-  
-    // Round to two decimal places and convert to valid format
-    const focusPoint = {
-      x: parseFloat(x.toFixed(2)),
-      y: parseFloat(y.toFixed(2))
-    };
-  
-    const track = mediaStream.getVideoTracks()[0];
-    const constraints = {
-      advanced: [{ focusMode: "manual", focusDistance: 0, focusPoint }]
-    };
-  
-    try {
-      track.applyConstraints(constraints);
-    } catch (error) {
-      console.error("Error applying constraints:", error);
-    }
-  }
-
   function handleVideoDoubleClick() {
     console.log('flipping');
     setFacingMode(facingMode === "user" ? "environment" : "user");
@@ -84,13 +58,13 @@ export default function Camera() {
 
   return (
     <main className="overflow-hidden rounded-top w-full h-full relative">
-      <video className="flipped w-full mx-auto h-[calc(100%-80px)] object-cover rounded-top" ref={videoRef} autoPlay muted playsInline onClick={handleVideoClick} onDoubleClick={handleVideoDoubleClick} />
+      <video className="flipped w-full mx-auto h-[calc(100%-80px)] object-cover rounded-top" ref={videoRef} autoPlay muted playsInline onDoubleClick={handleVideoDoubleClick} />
 
       <div className="absolute top-4 left-4 w-12 h-12 bg-neutral-900/20 rounded-full">
 
       </div>
 
-      <svg className="absolute bottom-28 left-1/2 transform -translate-x-1/2" height="100" width="100">
+      <svg className="absolute bottom-52 left-1/2 transform -translate-x-1/2" height="100" width="100">
         <circle cx="50" cy="50" r="34" stroke="white" strokeWidth="6" fillOpacity="0%" />
       </svg>
     </main>
