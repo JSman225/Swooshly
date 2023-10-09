@@ -1,7 +1,7 @@
 {
     "name": "Swooshly",
     "short_name": "Swooshly",
-    "start_url": "app",
+    "start_url": "https://swooshly.vercel.app",
     "theme_color": "#111111",
     "background_color": "#111111",
     "display": "standalone",
