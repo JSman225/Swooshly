@@ -51,7 +51,7 @@ export default function Camera() {
   }
   return (
     <main className="overflow-hidden rounded-top w-full h-full">
-      <video className="flipped w-full mx-auto h-[calc(100%-80px)] object-cover rounded-top" ref={videoRef} autoPlay muted />
+      <video className="flipped w-full mx-auto h-[calc(100%-80px)] object-cover rounded-top" ref={videoRef} autoPlay muted playsInline />
       <div className="relative bottom-20">
         <svg className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" height="100" width="100">
           <circle cx="50" cy="50" r="34" stroke="white" strokeWidth="6" fillOpacity="0%" />
