@@ -7,9 +7,23 @@ export default function RootLayout({ children }) {
                 <meta charset="UTF-8"></meta>
                 <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
-                <meta name="title" content="Swooshly"></meta>
-                <meta name="description" content="Ignite your confidence, attract admirers."></meta>
                 <meta name="keywords" content="Swooshly, swooshly, confidence, admirers"></meta>
+
+                <meta name="title" content="Swooshly - Ignite your confidence" />
+                <meta name="description" content="Ignite your confidence, attract admirers." />
+
+                <meta property="og:type" content="website" />
+                <meta property="og:url" content="https://swooshly.org" />
+                <meta property="og:title" content="Swooshly - Ignite your confidence" />
+                <meta property="og:description" content="Ignite your confidence, attract admirers." />
+                <meta property="og:image" content="https://swooshly.org/logo.png" />
+
+                <meta property="twitter:card" content="summary_large_image" />
+                <meta property="twitter:url" content="https://swooshly.org" />
+                <meta property="twitter:title" content="Swooshly - Ignite your confidence" />
+                <meta property="twitter:description" content="Ignite your confidence, attract admirers." />
+                <meta property="twitter:image" content="https://swooshly.org/logo.png" />
+
                 <meta name="robots" content="index, follow"></meta>
                 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
                 <meta name="language" content="English"></meta>
