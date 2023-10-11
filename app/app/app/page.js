@@ -1,6 +1,8 @@
 'use client'
 import Image from 'next/image';
 import { useEffect } from 'react';
+import Nav from './nav'
+import Link from 'next/link'
 
 export default function Home() {
   useEffect(() => {
@@ -22,6 +24,7 @@ export default function Home() {
     }
 
     lockScreen();
+
     // left: 37, up: 38, right: 39, down: 40,
     // spacebar: 32, pageup: 33, pagedown: 34, end: 35, home: 36
     var keys = { 37: 1, 38: 1, 39: 1, 40: 1 };
@@ -391,10 +394,11 @@ export default function Home() {
       </div>
 
       <div className="ml-4 my-5 flex gap-4 overflow-x-scroll no-scrollbar">
+        <Link href="/app/start">
         <div className="w-20 h-20 min-w-[80px]">
           <img draggable="false" className="w-full h-full rounded-full object-cover active:scale-95 active:opacity-75 transition-all ease-in-out"
             src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80" />
-        </div>
+        </div></Link>
         <div className="w-20 h-20 min-w-[80px]">
           <img className="w-full h-full rounded-full object-cover"
             src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80" />
@@ -473,7 +477,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-
+    <Nav />
     </main>
 
 
