@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
                 <meta name="apple-mobile-web-app-title" content="Swooshly"></meta>
                 <title>Ignite your confidence | Swooshly</title>
             </head>
-            <body>
+            <body className="bg-[#111111]">
                 {children}
             </body>
         </html>
