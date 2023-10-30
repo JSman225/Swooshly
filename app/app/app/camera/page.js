@@ -40,7 +40,8 @@ export default function Camera() {
   async function setupMediaStream() {
     try {
       const ms = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: "user" },
+        //video: { facingMode: "user" },
+        video: false,
         audio: false
       });
       setMediaStream(ms);
@@ -95,8 +96,7 @@ export default function Camera() {
       const newFacingMode = facingMode === "user" ? "environment" : "user";
 
       const updatedStream = await navigator.mediaDevices.getUserMedia({
-        //video: { facingMode: newFacingMode },
-        video: false,
+        video: { facingMode: newFacingMode },
         audio: false
       });
 
