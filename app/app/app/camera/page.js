@@ -95,7 +95,8 @@ export default function Camera() {
       const newFacingMode = facingMode === "user" ? "environment" : "user";
 
       const updatedStream = await navigator.mediaDevices.getUserMedia({
-        video: { facingMode: newFacingMode },
+        //video: { facingMode: newFacingMode },
+        video: false,
         audio: false
       });
 
@@ -106,7 +107,7 @@ export default function Camera() {
   }
   return (
     <main className="overflow-hidden rounded-top w-full h-full relative">
-      <video className="flipped w-full mx-auto h-full object-cover rounded-top" ref={videoRef} autoPlay={true} muted={true} playsInline={true} onDoubleClick={handleVideoDoubleTap} />
+      <video className="flipped w-full mx-auto h-full object-cover rounded-top" ref={videoRef} autoPlay muted playsInline onDoubleClick={handleVideoDoubleTap} />
 
       <div className="absolute top-4 left-4 w-12 h-12 bg-neutral-900/20 rounded-full">
 
