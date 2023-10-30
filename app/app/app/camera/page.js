@@ -60,18 +60,9 @@ export default function Camera() {
         return;
       }
 
-      // Get the screen dimensions
-      const screenWidth = window.innerWidth;
-      const screenHeight = window.innerHeight;
-
       // Set the canvas dimensions to fit the screen
       canvas.width = video.videoWidth;
       canvas.height = video.videoHeight;
-
-      // Style the video element to fit the canvas using object-fit
-      video.style.objectFit = "cover";
-      video.style.width = screenWidth;
-      video.style.height = screenHeight;
 
       const context = canvas.getContext("2d");
 

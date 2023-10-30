@@ -6,7 +6,7 @@ import BottomSheet from './bottomSheet';
 export default function AppLayout({ children }) {
   return (      
       <section className="bg-[#111111] w-full h-screen max-w-md rounded-top">
-        <div className="overflow-y-hidden rounded-top" id="app">
+        <div className="overflow-y-hidden rounded-top w-full h-full" id="app">
           {children}
         </div>
 
