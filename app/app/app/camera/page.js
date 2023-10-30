@@ -61,22 +61,22 @@ export default function Camera() {
       }
 
       // Get the screen dimensions
-const screenWidth = window.innerWidth;
-const screenHeight = window.innerHeight;
+      const screenWidth = window.innerWidth;
+      const screenHeight = window.innerHeight;
 
-// Set the canvas dimensions to fit the screen
-canvas.width = screenWidth;
-canvas.height = screenHeight;
+      // Set the canvas dimensions to fit the screen
+      canvas.width = screenWidth;
+      canvas.height = screenHeight;
 
-// Style the video element to fit the canvas using object-fit
-video.style.objectFit = "cover";
-video.style.width = "100%";
-video.style.height = "100%";
+      // Style the video element to fit the canvas using object-fit
+      video.style.objectFit = "cover";
+      video.style.width = "100%";
+      video.style.height = "100%";
 
-const context = canvas.getContext("2d");
+      const context = canvas.getContext("2d");
 
-// Capture a frame from the video
-context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      // Capture a frame from the video
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
 
       // Convert the frame to a data URL
@@ -103,7 +103,7 @@ context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
       const updatedStream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: newFacingMode },
-        audio: true
+        audio: false
       });
 
       video.srcObject = updatedStream;
@@ -113,7 +113,7 @@ context.drawImage(video, 0, 0, canvas.width, canvas.height);
   }
   return (
     <main className="overflow-hidden rounded-top w-full h-full relative">
-      <video className="flipped w-full mx-auto h-full object-cover rounded-top" ref={videoRef} autoPlay={true} muted={true} playsInline={true} onDoubleClick={handleVideoDoubleTap}/>
+      <video className="flipped w-full mx-auto h-full object-cover rounded-top" ref={videoRef} autoPlay={true} muted={true} playsInline={true} onDoubleClick={handleVideoDoubleTap} />
 
       <div className="absolute top-4 left-4 w-12 h-12 bg-neutral-900/20 rounded-full">
 
