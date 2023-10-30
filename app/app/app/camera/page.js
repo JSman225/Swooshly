@@ -41,7 +41,7 @@ export default function Camera() {
     try {
       const ms = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: "user" },
-        audio: true
+        audio: false
       });
       setMediaStream(ms);
     } catch (e) {
@@ -102,7 +102,7 @@ export default function Camera() {
   }
   return (
     <main className="overflow-hidden rounded-top w-full h-full relative">
-      <video className="flipped w-full mx-auto h-full object-cover rounded-top" ref={videoRef} autoPlay muted playsInline onDoubleClick={handleVideoDoubleTap}/>
+      <video className="flipped w-full mx-auto h-full object-cover rounded-top" ref={videoRef} autoPlay={true} muted={true} playsInline={true} onDoubleClick={handleVideoDoubleTap}/>
 
       <div className="absolute top-4 left-4 w-12 h-12 bg-neutral-900/20 rounded-full">
 
