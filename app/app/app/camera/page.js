@@ -65,16 +65,18 @@ export default function Camera() {
       const screenHeight = window.innerHeight;
 
       // Set the canvas dimensions to fit the screen
-      canvas.width = screenWidth;
-      canvas.height = screenHeight;
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
 
       // Style the video element to fit the canvas using object-fit
       video.style.objectFit = "cover";
-      video.style.width = "100%";
-      video.style.height = "100%";
+      video.style.width = screenWidth;
+      video.style.height = screenHeight;
 
       const context = canvas.getContext("2d");
 
+      context.translate(canvas.width, 0);
+      context.scale(-1, 1);
       // Capture a frame from the video
       context.drawImage(video, 0, 0, canvas.width, canvas.height);
 
