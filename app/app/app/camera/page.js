@@ -40,8 +40,7 @@ export default function Camera() {
   async function setupMediaStream() {
     try {
       const ms = await navigator.mediaDevices.getUserMedia({
-        //video: { facingMode: "user" },
-        video: false,
+        video: { facingMode: "user" },
         audio: false
       });
       setMediaStream(ms);
