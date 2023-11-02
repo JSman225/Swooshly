@@ -402,7 +402,7 @@ export default function Home() {
       </div>
       <div className="ml-4 my-5 flex gap-4 overflow-x-scroll no-scrollbar">
         <div className="w-20 h-20 min-w-[80px]">
-          <img onTouchStart={() => setTimeout(() => { toggleTemp() }, 200)} draggable="false" className="w-full h-full rounded-full object-cover active:scale-95 active:opacity-75 transition-all ease-in-out"
+          <img onTouchStart={() => setTimeout(() => { toggleTemp() }, 350)} draggable="false" className="w-full h-full rounded-full object-cover active:scale-95 active:opacity-75 transition-all ease-in-out"
             src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80" />
         </div>
         <Link href="/app/start">
