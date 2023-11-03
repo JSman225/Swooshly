@@ -322,7 +322,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main>
+    <main class="rounded-top">
       <div id="searchContainer" className="search-container flex flex-col justify-center">
         <div className="relative mx-4 mt-2 h-full">
           <input id="searchBarLarge" type="search"
