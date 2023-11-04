@@ -4,7 +4,7 @@ import { useEffect } from 'react';
 import { useState } from 'react';
 import Nav from './nav'
 import Link from 'next/link'
-import Temp from './components/profilePopup'
+import Temp from './temp'
 
 export default function Home() {
   const [tempVisible, setTempVisible] = useState(false);
@@ -320,6 +320,7 @@ export default function Home() {
     const toggleButton = document.getElementById('searchBarLarge');
     toggleButton.addEventListener('mousedown', toggleSearch);
   }, []);
+
   return (
     <main class="rounded-top">
       <div id="searchContainer" className="search-container flex flex-col justify-center">
@@ -397,7 +398,7 @@ export default function Home() {
       </div>
 
       <div className="mx-4 my-5 max-h-24">
-        <img className="object-cover w-full border-2 border-white/10 rounded-2xl" src="./banner.png" />
+        <img className="object-cover w-full border-2 border-white/10 rounded-2xl" src="banner.png" />
       </div>
       <div className="ml-4 my-5 flex gap-4 overflow-x-scroll no-scrollbar">
         <div className="w-20 h-20 min-w-[80px]">
