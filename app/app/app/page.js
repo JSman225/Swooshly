@@ -398,7 +398,7 @@ export default function Home() {
       </div>
 
       <div className="mx-4 my-5 max-h-24">
-        <img className="object-cover w-full border-2 border-white/10 rounded-2xl" src="banner.png" />
+        <img className="object-cover w-full border-2 border-white/10 rounded-2xl" src="./banner.png" />
       </div>
       <div className="ml-4 my-5 flex gap-4 overflow-x-scroll no-scrollbar">
         <div className="w-20 h-20 min-w-[80px]">
