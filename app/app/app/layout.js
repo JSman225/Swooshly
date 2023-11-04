@@ -1,7 +1,7 @@
 'use client'
 import '../globals.css';
-import Nav from './components/nav';
-import BottomSheet from './components/bottomSheet';
+import Nav from './components/nav.js';
+import BottomSheet from './components/bottomSheet.js';
 
 export default function AppLayout({ children }) {
   return (
