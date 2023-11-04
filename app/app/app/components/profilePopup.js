@@ -1,4 +1,4 @@
-export default function Temp({ visible, onClose }) {
+export default function ProfilePopup({ visible, onClose }) {
     return (
       <div className={`rounded-top fixed top-0 left-0 max-w-md w-full h-screen z-[100] backdrop-blur-lg bg-[#111111] bg-opacity-80 flex-col flex items-start justify-end pl-6 pb-6 transition-all ${visible ? 'opacity-100 transform translate-y-0' : 'opacity-0 transform translate-y-full'}`}>
         {visible && (
