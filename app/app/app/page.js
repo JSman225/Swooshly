@@ -5,7 +5,6 @@ import { useState } from 'react';
 import Nav from './nav'
 import Link from 'next/link'
 import Temp from './temp'
-import { searchUsers } from './searchUsers';
 
 export default function Home() {
   const [tempVisible, setTempVisible] = useState(false);

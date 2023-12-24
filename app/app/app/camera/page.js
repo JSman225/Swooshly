@@ -82,7 +82,7 @@ export default function Camera() {
       alert("Failed to capture the image. Please try again.");
     }
   }
-
+  var facingMode1 = "user";
   async function handleVideoDoubleTap() {
     try {
       const video = videoRef.current;
@@ -93,7 +93,7 @@ export default function Camera() {
 
       const facingMode = video.srcObject.getVideoTracks()[0].getSettings().facingMode;
       const newFacingMode = facingMode === "user" ? "environment" : "user";
-
+      facingMode1 = newFacingMode;
       const updatedStream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: newFacingMode },
         audio: false
@@ -106,7 +106,14 @@ export default function Camera() {
   }
   return (
     <main className="overflow-hidden rounded-top w-full h-full relative">
-      <video className="flipped w-full mx-auto h-full object-cover rounded-top" ref={videoRef} autoPlay muted playsInline onDoubleClick={handleVideoDoubleTap} />
+      {
+        facingMode1 === "user" ? (
+          <video className="flipped w-full mx-auto h-full object-cover rounded-top" ref={videoRef} autoPlay muted playsInline onDoubleClick={handleVideoDoubleTap} />
+        ) : (
+          <video className="w-full mx-auto h-full object-cover rounded-top" ref={videoRef} autoPlay muted playsInline onDoubleClick={handleVideoDoubleTap} />
+        )
+      }
+
 
       <div className="absolute top-4 left-4 w-12 h-12 bg-neutral-900/20 rounded-full">
 
