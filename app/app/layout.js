@@ -33,9 +33,9 @@ export default function RootLayout({ children }) {
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
                 <link rel="manifest" href="/site.webmanifest" />
-                <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#101010" />
-                <meta name="msapplication-TileColor" content="#101010"></meta>
-                <meta name="theme-color" content="#111111"></meta>
+                <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#1d0b2a" />
+                <meta name="msapplication-TileColor" content="#1d0b2a"></meta>
+                <meta name="theme-color" content="#1d0b2a"></meta>
                 <meta name="apple-mobile-web-app-title" content="Swooshly"></meta>
                 <title>Ignite your confidence | Swooshly</title>
             </head>

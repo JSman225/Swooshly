@@ -2,8 +2,8 @@
     "name": "Swooshly",
     "short_name": "Swooshly",
     "start_url": "app", 
-    "theme_color": "#111111",
-    "background_color": "#111111",
+    "theme_color": "#1d0b2a",
+    "background_color": "#1d0b2a",
     "display": "standalone",
     "prefer_related_applications": false,
     "icons": [

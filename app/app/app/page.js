@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Nav from './nav'
 import Link from 'next/link'
 import Temp from './temp'
+import { searchUsers } from './searchUsers';
 
 export default function Home() {
   const [tempVisible, setTempVisible] = useState(false);
@@ -225,7 +226,7 @@ export default function Home() {
       }
 
       try {
-        const response = await fetch(`/.netlify/functions/fast_search?q=${searchTerm}`, { signal })
+        const response = await searchUsers(searchTerm)
           .then(response => response.json())
           .then(data => {
             console.log('Search results:', data);
@@ -398,7 +399,7 @@ export default function Home() {
       </div>
 
       <div className="mx-4 my-5 max-h-24">
-        <img className="object-cover w-full border-2 border-white/10 rounded-2xl" src="./banner.png" />
+        <img className="object-cover w-full border-2 border-white/10 rounded-2xl" src="https://i.ibb.co/TgCdFJV/banner.png" />
       </div>
       <div className="ml-4 my-5 flex gap-4 overflow-x-scroll no-scrollbar">
         <div className="w-20 h-20 min-w-[80px]">

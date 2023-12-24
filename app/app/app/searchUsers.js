@@ -4,9 +4,9 @@ const mongoClient = new MongoClient('mongodb+srv://leonardikarl:hvX91y0gskxo39aF
 
 const clientPromise = mongoClient.connect();
 
-const handler = async (event) => {
+export async function searchUsers({ search, }) {
     try {
-        const searchTerm = event.queryStringParameters.q; // Get the search term from the query parameters
+        const searchTerm = search; // Get the search term from the query parameters
         const database = (await clientPromise).db('swooshly_user_data');
         const collection = database.collection('users');
 
@@ -28,6 +28,4 @@ const handler = async (event) => {
     }
     
 };
-
-module.exports = { handler };
 
