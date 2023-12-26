@@ -126,8 +126,6 @@ export default function Home() {
       }
 
 
-      userList.innerHTML = "";
-
       loading.classList.remove('hidden');
       document.getElementById('holdOnMessage').innerHTML = getRandomHoldOnMessage();
 
@@ -141,56 +139,7 @@ export default function Home() {
           console.log(searchResultsContent);
           const userList = document.getElementById("userList");
           loading.classList.add('hidden');
-          if (data.length === 0) {
-            // Display a message indicating no results
-            const noResultsMessage = document.createElement("p");
-            noResultsMessage.className = "text-white text-center py-4";
-            noResultsMessage.innerText = "No results found.";
-            userList.appendChild(noResultsMessage);
-          }
-          else {
-            data.forEach(user => {
-              const userDiv = document.createElement("div");
-              userDiv.className = "rounded-2xl w-full h-16 flex justify-start items-center";
-
-              const userImg = document.createElement("img");
-              userImg.className = "object-cover rounded-full h-[54px] w-[54px] ml-1.5";
-              userImg.src = user.profilePicture;
-
-              const userInfoDiv = document.createElement("div");
-              userInfoDiv.className = "text-white font-light ml-3";
-
-              const userName = document.createElement("p");
-              userName.className = "flex gap-1";
-              userName.innerText = user.name;
-
-              const verifiedImg = document.createElement("img");
-              verifiedImg.width = 20;
-              verifiedImg.height = 20;
-              if (user.verified === "true") {
-                verifiedImg.src = "../assets/blue_check.svg";
-              } else {
-                verifiedImg.classList.add('hidden');
-              }
-
-              userName.appendChild(verifiedImg);
-
-              const userUsername = document.createElement("p");
-              userUsername.className = "text-xs opacity-75";
-              userUsername.innerText = user.username;
-
-              userInfoDiv.appendChild(userName);
-              userInfoDiv.appendChild(userUsername);
-
-              userDiv.appendChild(userImg);
-              userDiv.appendChild(userInfoDiv);
-
-
-
-              userList.appendChild(userDiv);
-            });
-          }
-
+          
         })
         .catch(error => {
           console.error("An error occurred:", error);
