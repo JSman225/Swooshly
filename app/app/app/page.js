@@ -193,8 +193,6 @@ export default function Home() {
         })
         .catch(error => {
           console.error("An error occurred:", error);
-          // Handle the error gracefully
-          // ...
         });
 
     }
