@@ -137,7 +137,7 @@ export default function Home() {
       fetch(`/app/fetchUsers?user=${searchTerm}`)
         .then(response => response.json())
         .then(data => {
-          console.log(data);
+          searchResultsContent = data.results;
           const userList = document.getElementById("userList");
           loading.classList.add('hidden');
           if (data.length === 0) {
@@ -319,6 +319,7 @@ export default function Home() {
     toggleButton.addEventListener('mousedown', toggleSearch);
   }, []);
   var searchResultsContent = [];
+  console.log(searchResultsContent);
   return (
     <main class="rounded-top">
       <div id="searchContainer" className="search-container flex flex-col justify-center">

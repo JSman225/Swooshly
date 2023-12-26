@@ -17,7 +17,7 @@ export async function GET(request) {
       .find({
         $or: [
           { name: { $regex: searchTerm, $options: 'i' } }, // Search in 'name'
-          { username: { $regex: searchTerm, $options: 'i' } } // Search in 'username'
+          { username: { $regex: searchTerm.replace(/\s/g, ''), $options: 'i' } } // Remove spaces for 'username'
         ]
       })
       .limit(12)
