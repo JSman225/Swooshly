@@ -318,7 +318,7 @@ export default function Home() {
     const toggleButton = document.getElementById('searchBarLarge');
     toggleButton.addEventListener('mousedown', toggleSearch);
   }, []);
-
+  var searchResultsContent = [];
   return (
     <main class="rounded-top">
       <div id="searchContainer" className="search-container flex flex-col justify-center">
@@ -363,7 +363,19 @@ export default function Home() {
               <p className="text-center w-16 text-white" id="holdOnMessage"></p>
             </div>
             <div id="userList" className="mt-5">
-
+              {searchResultsContent.map((item) => (
+                <div className="rounded-2xl w-full h-16 flex justify-start items-center">
+                  <img className="object-cover rounded-full h-[54px] w-[54px] ml-1.5" src={item.profilePicture} />
+                  <div className="text-white font-light ml-3">
+                    <p className="flex gap-1">{item.name}</p>
+                    {item.verified === "true" &&
+                      <img width={20} height={20} src="../assets/blue_check.svg" alt="Verified Check" />
+                    }
+                    <p className="text-xs opacity-75">{item.username}</p>
+                  </div>
+                </div>
+              ))
+              }
             </div>
             <div id="recentListContainer">
               <p className="text-md opacity-75 text-white font-sans font-semibold">Recent searches</p>
