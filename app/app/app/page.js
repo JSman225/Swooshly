@@ -138,6 +138,7 @@ export default function Home() {
         .then(response => response.json())
         .then(data => {
           searchResultsContent = data.results;
+          console.log(searchResultsContent);
           const userList = document.getElementById("userList");
           loading.classList.add('hidden');
           if (data.length === 0) {
@@ -319,7 +320,6 @@ export default function Home() {
     toggleButton.addEventListener('mousedown', toggleSearch);
   }, []);
   var searchResultsContent = [];
-  console.log(searchResultsContent);
   return (
     <main class="rounded-top">
       <div id="searchContainer" className="search-container flex flex-col justify-center">
