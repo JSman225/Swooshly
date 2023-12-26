@@ -134,7 +134,7 @@ export default function Home() {
 
       // Create a new AbortController instance
 
-      fetch(`/users?user=${searchTerm}`)
+      fetch(`/fetchUsers?user=${searchTerm}`)
         .then(response => response.json())
         .then(data => {
           console.log(data);
