@@ -12,19 +12,19 @@ export async function GET(request) {
     const database = (await clientPromise).db('swooshly_user_data');
     const collection = database.collection('users');
 
-    // Create a case-insensitive regex pattern for the search term
-    const searchRegex = new RegExp(searchTerm, "i");
-
     // Perform the search using the regex pattern, limit results to 12, and sort by relevance
     const results = await collection
-      .find({ username: { $regex: searchRegex } })
+      .find({
+        $or: [
+          { name: { $regex: searchTerm, $options: 'i' } }, // Search in 'name'
+          { username: { $regex: searchTerm, $options: 'i' } } // Search in 'username'
+        ]
+      })
       .limit(12)
       .toArray();
 
-    return Response.json({
-      statusCode: 200,
-      body: JSON.stringify(results),
-    });
+
+    return Response.json({results});
   } catch (error) {
     return Response.json({ statusCode: 500, body: error.toString() });
   }
