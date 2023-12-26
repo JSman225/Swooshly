@@ -134,7 +134,7 @@ export default function Home() {
 
       // Create a new AbortController instance
 
-      fetch(`/.netlify/functions/search_users?q=${searchTerm}`, { signal })
+      fetch(`/users?user=${searchTerm}`)
         .then(response => response.json())
         .then(data => {
           console.log(data);
