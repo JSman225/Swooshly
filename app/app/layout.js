@@ -4,8 +4,8 @@ export default function RootLayout({ children }) {
     return (
         <html lang="en">
             <head>
-                <meta charset="UTF-8"></meta>
-                <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+                <meta charSet="UTF-8"></meta>
+                <meta httpEquiv="X-UA-Compatible" content="IE=edge"></meta>
                 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
                 <meta name="keywords" content="Swooshly, swooshly, confidence, admirers"></meta>
 
@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
                 <meta property="twitter:image" content="https://swooshly.org/logo.png" />
 
                 <meta name="robots" content="index, follow"></meta>
-                <meta http-equiv="Content-Type" content="text/html; charset=utf-8"></meta>
+                <meta httpEquiv="Content-Type" content="text/html; charSet=utf-8"></meta>
                 <meta name="language" content="English"></meta>
                 <meta name="revisit-after" content="2 days"></meta>
                 <meta name="author" content="Deltasoft"></meta>
