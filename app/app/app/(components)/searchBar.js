@@ -6,16 +6,17 @@ export default function SearchBar() {
     const [searchValue, setSearchValue] = useState('');
 
     const handleSearchChange = (event) => {
-      setSearchValue(event.target.value);
+        setSearchValue(event.target.value);
     };
-  
+
     const handleClearSearch = () => {
-      setSearchValue('');
+        setSearchValue('');
     };
-  
-    var searchResultsContent = [];
+
+    var searchResults = [];
+    var recentSearches = [{ "_id": "1", "name": "John Doe", "email": "johndoe@example.com", "password": "hashed_password_here", "username": "johndoe123", "profilePicture": "https://images.unsplash.com/photo-1482961674540-0b0e8363a005?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80", "followers": ["follower_id_1", "follower_id_2"], "following": ["following_id_1", "following_id_2"], "unreadNotifications": [{ "message": "New post by user X", "timestamp": "notification_timestamp_here" }, { "message": "Someone started following you", "timestamp": "notification_timestamp_here" }], "latestPost": "latest_post_id_here", "posts": ["post_id_1", "post_id_2"], "verified": "false" }, { "_id": "2", "name": "Ava Reynolds", "email": "avareynolds@example.com", "password": "hashed_password_here", "username": "avareynolds", "profilePicture": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80", "followers": ["follower_id_1", "follower_id_2"], "following": ["following_id_1", "following_id_2"], "unreadNotifications": [{ "message": "New post by user X", "timestamp": "notification_timestamp_here" }, { "message": "Someone started following you", "timestamp": "notification_timestamp_here" }], "latestPost": "latest_post_id_here", "posts": ["post_id_1", "post_id_2"], "verified": "true" }, { "_id": "3", "name": "Alexa Jones", "email": "alexajones@example.com", "password": "hashed_password_here", "username": "alexajones", "profilePicture": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=387&q=80", "followers": ["follower_id_1", "follower_id_2"], "following": ["following_id_1", "following_id_2"], "unreadNotifications": [{ "message": "New post by user X", "timestamp": "notification_timestamp_here" }, { "message": "Someone started following you", "timestamp": "notification_timestamp_here" }], "latestPost": "latest_post_id_here", "posts": ["post_id_1", "post_id_2"], "verified": "true" }, { "_id": "4", "name": "Marvin Gaye", "email": "margingaye@example.com", "password": "hashed_password_here", "username": "somethingtotallydiffrent", "profilePicture": "https://www.songhall.org/images/uploads/exhibits/MarvinGaye_by_Jim_Britt.jpg", "followers": ["follower_id_1", "follower_id_2"], "following": ["following_id_1", "following_id_2"], "unreadNotifications": [{ "message": "New post by user X", "timestamp": "notification_timestamp_here" }, { "message": "Someone started following you", "timestamp": "notification_timestamp_here" }], "latestPost": "latest_post_id_here", "posts": ["post_id_1", "post_id_2"], "verified": "true" }];
     return (
-        <div>
+        <div className="relative">
             <div id="searchBar" className="w-full mx-4 mt-2 flex justify-center">
                 <div className="text-gray-100 flex mr-4 items-center w-full">
                     <div className={open ?
@@ -45,8 +46,8 @@ export default function SearchBar() {
                 </div>
 
             </div>
-            <div id="resultsContainer" className="w-full h-full my-5 hidden">
-                <div id="loading" className="w-full">
+            <div className={open ? ("w-full max-w-md h-vh px-5 absolute bg-[#111111] z-10") : ("hidden")}>
+                <div id="loading" className="w-full hidden">
                     <svg className="mx-auto" width="75" height="75" version="1.1" id="L5" xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
                         enableBackground="new 0 0 0 0" xmlSpace="preserve">
@@ -66,40 +67,49 @@ export default function SearchBar() {
                     <p className="text-center w-16 text-white" id="holdOnMessage"></p>
                 </div>
                 <div id="userList" className="mt-5">
-                    {searchResultsContent.map((item) => (
-                        <div className="rounded-2xl w-full h-16 flex justify-start items-center">
-                            <img className="object-cover rounded-full h-[54px] w-[54px] ml-1.5" src={item.profilePicture} />
+                    {searchResults.map((item, key) => (
+                        <div key={key} className="rounded-xl hover:bg-neutral-800 mb-2 w-full h-16 flex justify-between">
+                        <div className="mb-2 w-full h-16 flex justify-left items-center">
+                            <img className="object-cover rounded-xl h-[54px] w-[54px] ml-1.5" src={item.profilePicture} />
                             <div className="text-white font-light ml-3">
-                                <p className="flex gap-1">{item.name}</p>
-                                {item.verified === "true" &&
-                                    <img width={20} height={20} src="../assets/blue_check.svg" alt="Verified Check" />
-                                }
+                                <p className="flex gap-1">
+                                    {item.name}
+                                    {item.verified === "true" &&
+                                        <img width={20} height={20} src="blue_check.svg" alt="Verified Check" />
+                                    }
+                                </p>
                                 <p className="text-xs opacity-75">{item.username}</p>
                             </div>
                         </div>
+                        <svg className="w-6 h-16 mb-2 mr-8 text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </div>
                     ))
                     }
                 </div>
-                <div id="recentListContainer">
-                    <p className="text-md opacity-75 text-white font-sans font-semibold">Recent searches</p>
-                    <div className="mt-4" id="recentList">
-                        <div className="rounded-2xl w-full h-16 flex justify-start items-center">
-                            <img id="img" className="object-cover rounded-full h-[54px] w-[54px] ml-1.5"
-                                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80" />
-                            <div className="text-white font-light ml-3">
-                                <p id="name" className="flex gap-1">
-                                    Hannah DeRios
-                                    <img id="verrified" width="20" height="20" src="blue_check.svg" />
-                                </p>
-                                <p id="username" className="text-xs opacity-75">
-                                    User Experience Designer
-                                </p>
+                <div className="h-96">
+                    <p className="text-lg text-white/90 font-sans font-semibold mb-4">Recent searches</p>
+                    {recentSearches.map((item, key) => (
+                        <div key={key} className="rounded-xl hover:bg-neutral-800 mb-2 w-full h-16 flex justify-between">
+                            <div className="mb-2 w-full h-16 flex justify-left items-center">
+                                <img className="object-cover rounded-xl h-[54px] w-[54px] ml-1.5" src={item.profilePicture} />
+                                <div className="text-white font-light ml-3">
+                                    <p className="flex gap-1">
+                                        {item.name}
+                                        {item.verified === "true" &&
+                                            <img width={20} height={20} src="blue_check.svg" alt="Verified Check" />
+                                        }
+                                    </p>
+                                    <p className="text-xs opacity-75">{item.username}</p>
+                                </div>
                             </div>
-                            <svg className="w-6 h-6 text-white opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
-                                <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                            <svg className="w-6 h-16 mb-2 mr-8 text-white/90 opacity-75" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="2" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                             </svg>
                         </div>
-                    </div>
+                    ))
+                    }
                 </div>
             </div>
         </div>
