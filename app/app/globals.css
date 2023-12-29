@@ -3,6 +3,7 @@
 @tailwind utilities;
 *{
   -webkit-touch-callout:none;
+  transition: all .2s;
 }
 
 .rounded-top {

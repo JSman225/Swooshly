@@ -66,7 +66,7 @@ export default function Nav() {
     );
 
     return (
-        <div className="bg-[#1e1e1e] flex justify-center h-24 w-full fixed bottom-0 max-w-md z-50 rounded-top-mega" id="nav-bar">
+        <div className="bg-[#1e1e1e] flex justify-center h-28 w-full fixed bottom-0 max-w-md z-50 rounded-top-mega" id="nav-bar">
             <div className="flex w-[90%] h-12 mt-4 justify-center items-end gap-9 text-gray-200">
                 <Link href="/app/notifications">
                     {currentPage === "/app/notifications" ? notificationsFull : notifications}

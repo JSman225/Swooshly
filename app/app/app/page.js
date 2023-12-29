@@ -266,13 +266,6 @@ export default function Home() {
 
   return (
     <main className="rounded-top">
-      <div id="searchContainer" className="search-container flex flex-col justify-center">
-        <div className="relative mx-4 mt-2 h-full">
-          <input id="searchBarLarge" type="search"
-            className="apple-search-input px-3 py-2 h-[42px] text-base border border-gray-300 rounded-lg bg-gray-100 text-gray-700 w-full"
-            placeholder="Search" />
-        </div>
-      </div>
       <SearchBar />
 
       <div className="mx-4 my-5 hidden">
