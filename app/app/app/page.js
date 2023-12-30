@@ -6,6 +6,7 @@ import Nav from './nav'
 import Link from 'next/link'
 import Temp from './temp'
 import SearchBar from './(components)/searchBar';
+import FollowingBar from './(components)/followingBar';
 
 export default function Home() {
   const [tempVisible, setTempVisible] = useState(false);
@@ -276,34 +277,8 @@ export default function Home() {
       <div className="mx-4 my-5 max-h-24">
         <img className="object-cover w-full border-2 border-white/10 rounded-2xl" src="https://i.ibb.co/hyN5SP0/Deltasoft-ai-2.png" />
       </div>
-      <div className="ml-4 my-5 flex gap-4 overflow-x-scroll no-scrollbar">
-        <div className="w-20 h-20 min-w-[80px]">
-          <img onTouchStart={() => setTimeout(() => { toggleTemp() }, 350)} draggable="false" className="w-full h-full rounded-full object-cover active:scale-95 active:opacity-75 transition-all ease-in-out"
-            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80" />
-        </div>
-        <Link href="/app/start">
-          <div className="w-20 h-20 min-w-[80px]">
-            <img className="w-full h-full rounded-full object-cover"
-              src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80" />
-          </div>
-        </Link>
-        <div className="w-20 h-20 min-w-[80px]">
-          <img className="w-full h-full rounded-full object-cover"
-            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80" />
-        </div>
-        <div className="w-20 h-20 min-w-[80px]">
-          <img className="w-full h-full rounded-full object-cover"
-            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80" />
-        </div>
-        <div className="w-20 h-20 min-w-[80px]">
-          <img className="w-full h-full rounded-full object-cover"
-            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80" />
-        </div>
-        <div className="w-20 h-20 min-w-[80px]">
-          <img className="w-full h-full rounded-full object-cover"
-            src="https://images.unsplash.com/photo-1588516903720-8ceb67f9ef84?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=444&q=80" />
-        </div>
-      </div>
+      
+      <FollowingBar />
 
       <div className="mx-4 my-5 grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-[10px]" style={{ gridAutoRows: '188px' }}>
         <div className="relative bg-gray-500 rounded-[14px] max-w-[188px] row-span-2">
