@@ -5,8 +5,8 @@ import { useState } from 'react';
 import Nav from './nav'
 import Link from 'next/link'
 import Temp from './temp'
-import SearchBar from './(components)/searchBar';
-import FollowingBar from './(components)/followingBar';
+import SearchBar from './components/searchBar';
+import FollowingBar from './components/followingBar';
 
 export default function Home() {
   const [tempVisible, setTempVisible] = useState(false);

@@ -33,7 +33,7 @@ export default function SearchBar() {
                             value={searchValue}
                             onChange={handleSearchChange}
                             type="search"
-                            className="focus:outline-none px-4 py-2 text-sm bg-neutral-700 rounded-lg text-gray-100 w-full"
+                            className="outline-none px-4 py-2 text-sm bg-neutral-700 rounded-lg text-gray-100 w-full"
                             placeholder="Search" />
                         <svg onClick={handleClearSearch} xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className={open ? ("w-6 h-6 mr-5") : ("hidden")}>
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
