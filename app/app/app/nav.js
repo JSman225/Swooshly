@@ -66,7 +66,7 @@ export default function Nav() {
     );
 
     return (
-        <div className={currentPage === "/app/swoosh" ? "bg-slate-100/20 flex justify-center h-20 w-[calc(100%-24px)] mx-auto inset-x-0 fixed bottom-5 z-50 rounded-full" : "bg-[#1e1e1e] flex justify-center h-24 w-full fixed bottom-0 max-w-md z-50 rounded-top-mega"} id="nav-bar">
+        <div className={currentPage === "/app/swoosh" ? "bg-slate-100/20 flex justify-center h-[4.5rem] ring-2 ring-slate-100/40 shadow-2xl w-[calc(100%-24px)] mx-auto inset-x-0 fixed bottom-6 z-50 rounded-full" : "bg-[#1e1e1e] flex justify-center h-24 w-full fixed bottom-0 max-w-md z-50 rounded-top-mega"} id="nav-bar">
             <div className="flex w-[90%] h-full justify-center items-center gap-9 text-gray-200">
                 <Link href="/app/notifications">
                     {currentPage === "/app/notifications" ? notificationsFull : notifications}
