@@ -69,7 +69,7 @@ export default function Nav() {
     return (
         <div className={open ? ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] mx-auto inset-x-0 fixed bottom-6 z-50 rounded-full max-w-md") : ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-12 ring-2 ring-slate-100/30 w-12 right-3 fixed bottom-6 z-50 rounded-full max-w-md")} id="nav-bar">
             {open ? (
-                <div className="flex w-[90%] h-full justify-center items-center gap-9 text-gray-200">
+                <div className={open ? ("flex w-[90%] h-full justify-center items-center gap-9 text-gray-200 opacity-100 delay-100 transition-opacity") : ("flex w-[90%] h-full delay-100 justify-center items-center gap-2 opacity-0 transition-opacity text-gray-200")}>
                     <Link href="/app/notifications">
                         {currentPage === "/app/notifications" ? notificationsFull : notifications}
                     </Link>
@@ -82,7 +82,7 @@ export default function Nav() {
                     <Link href="/app/camera">
                         {currentPage === "/app/camera" ? cameraFull : camera}
                     </Link>
-                    <div className="w-8 h-8  flex justify-center items-center">
+                    <div onClick={() => setOpen(false)} className="w-8 h-8  flex justify-center items-center">
                         <img className="rounded-full object-cover ring-2 ring-slate-100/30 w-full h-full" src="/profiles/0.jpg" />
                     </div>
                 </div>
