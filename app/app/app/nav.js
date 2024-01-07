@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export default function Nav() {
-    const [open, setOpen] = useState(false);
+    const [open, setOpen] = useState(true);
     const currentPage = usePathname();
 
     let camera = (
@@ -69,7 +69,7 @@ export default function Nav() {
     return (
         <div className={open ? ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] mx-auto inset-x-0 fixed bottom-6 z-50 rounded-full max-w-md") : ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-12 ring-2 ring-slate-100/30 w-12 right-3 fixed bottom-6 z-50 rounded-full max-w-md")} id="nav-bar">
             {open ? (
-                <div className={open ? ("flex w-[90%] h-full justify-center items-center gap-9 text-gray-200 opacity-100 delay-100 transition-opacity") : ("flex w-[90%] h-full delay-100 justify-center items-center gap-2 opacity-0 transition-opacity text-gray-200")}>
+                <div className={open ? ("flex w-[90%] overflow-clip h-full justify-center items-center gap-9 text-gray-200") : ("")}>
                     <Link href="/app/notifications">
                         {currentPage === "/app/notifications" ? notificationsFull : notifications}
                     </Link>
