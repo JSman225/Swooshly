@@ -38,7 +38,7 @@ export default function Nav() {
 
     let swoosh = (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
-            strokeWidth="1.5" stroke="currentColor" className="w-8 h-8 ">
+            strokeWidth="1.5" stroke="currentColor" className="w-8 h-8">
             <path strokeLinecap="round" strokeLinejoin="round"
                 d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
         </svg>
@@ -66,7 +66,7 @@ export default function Nav() {
     );
 
     return (
-        <div className={currentPage === "/app/swoosh" ? "bg-slate-900/20 flex justify-center backdrop-blur-[1px] shadow-[0_25px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] mx-auto inset-x-0 fixed bottom-6 z-50 rounded-full max-w-md" : "bg-[#1e1e1e] flex justify-center h-24 w-full fixed bottom-0 max-w-md z-50 rounded-top-mega"} id="nav-bar">
+        <div className={currentPage === "/app/swoosh" ? "bg-slate-900/20 flex justify-center backdrop-blur-[1px] shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] mx-auto inset-x-0 fixed bottom-6 z-50 rounded-full max-w-md" : "bg-[#1e1e1e] flex justify-center h-24 w-full fixed bottom-0 max-w-md z-50 rounded-top-mega"} id="nav-bar">
             <div className="flex w-[90%] h-full justify-center items-center gap-9 text-gray-200">
                 <Link href="/app/notifications">
                     {currentPage === "/app/notifications" ? notificationsFull : notifications}
