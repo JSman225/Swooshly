@@ -1,9 +1,11 @@
 'use client'
+import { useState } from "react";
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export default function Nav() {
-    const currentPage = usePathname()
+    const [open, setOpen] = useState(false);
+    const currentPage = usePathname();
 
     let camera = (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
@@ -64,26 +66,36 @@ export default function Nav() {
             <path d="M14.857 17.082C16.7202 16.8614 18.5509 16.4217 20.311 15.772C18.8204 14.1208 17.9967 11.9745 18 9.75V9.05V9C18 7.4087 17.3678 5.88258 16.2426 4.75736C15.1174 3.63214 13.5913 3 12 3C10.4087 3 8.88257 3.63214 7.75735 4.75736C6.63213 5.88258 5.99999 7.4087 5.99999 9V9.75C6.00301 11.9746 5.17898 14.121 3.68799 15.772C5.42099 16.412 7.24799 16.857 9.14299 17.082M14.857 17.082C12.959 17.3071 11.041 17.3071 9.14299 17.082M14.857 17.082C15.0011 17.5319 15.0369 18.0094 14.9616 18.4757C14.8862 18.942 14.7018 19.384 14.4234 19.7656C14.1449 20.1472 13.7803 20.4576 13.3592 20.6716C12.9381 20.8856 12.4724 20.9972 12 20.9972C11.5276 20.9972 11.0619 20.8856 10.6408 20.6716C10.2197 20.4576 9.85506 20.1472 9.57661 19.7656C9.29816 19.384 9.11375 18.942 9.0384 18.4757C8.96305 18.0094 8.99889 17.5319 9.14299 17.082" stroke="#E5E7EB" />
         </svg>
     );
-
     return (
-        <div className="bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] mx-auto inset-x-0 fixed bottom-6 z-50 rounded-full max-w-md" id="nav-bar">
-            <div className="flex w-[90%] h-full justify-center items-center gap-9 text-gray-200">
-                <Link href="/app/notifications">
-                    {currentPage === "/app/notifications" ? notificationsFull : notifications}
-                </Link>
-                <Link href="/app">
-                    {currentPage === "/app" ? appFull : app}
-                </Link>
-                <Link href="/app/swoosh">
-                    {currentPage === "/app/swoosh" ? swooshFull : swoosh}
-                </Link>
-                <Link href="/app/camera">
-                    {currentPage === "/app/camera" ? cameraFull : camera}
-                </Link>
-                <div className="w-7 h-7  flex justify-center items-center">
-                    <img className="rounded-full object-cover ring-2 ring-slate-100/30 w-full h-full" src="/profiles/0.jpg" />
+        <div className={open ? ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] mx-auto inset-x-0 fixed bottom-6 z-50 rounded-full max-w-md") : ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-12 ring-2 ring-slate-100/30 w-12 right-3 fixed bottom-6 z-50 rounded-full max-w-md")} id="nav-bar">
+            {open ? (
+                <div className="flex w-[90%] h-full justify-center items-center gap-9 text-gray-200">
+                    <Link href="/app/notifications">
+                        {currentPage === "/app/notifications" ? notificationsFull : notifications}
+                    </Link>
+                    <Link href="/app">
+                        {currentPage === "/app" ? appFull : app}
+                    </Link>
+                    <Link href="/app/swoosh">
+                        {currentPage === "/app/swoosh" ? swooshFull : swoosh}
+                    </Link>
+                    <Link href="/app/camera">
+                        {currentPage === "/app/camera" ? cameraFull : camera}
+                    </Link>
+                    <div className="w-8 h-8  flex justify-center items-center">
+                        <img className="rounded-full object-cover ring-2 ring-slate-100/30 w-full h-full" src="/profiles/0.jpg" />
+                    </div>
                 </div>
-            </div>
-        </div >
+            ) : (
+                <div onClick={() => setOpen(true)} className="flex w-[90%] h-full justify-center items-center gap-9 text-gray-200">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </div>
+            )
+
+            }
+
+        </div>
     );
 }
