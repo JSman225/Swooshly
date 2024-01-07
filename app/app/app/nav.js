@@ -80,8 +80,8 @@ export default function Nav() {
                 <Link href="/app/camera">
                     {currentPage === "/app/camera" ? cameraFull : camera}
                 </Link>
-                <div className="w-8 h-8  flex justify-center items-center">
-                    <img className="rounded-full object-cover w-full h-full shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black" src="/profiles/0.jpg" />
+                <div className="w-7 h-7  flex justify-center items-center">
+                    <img className="rounded-full object-cover ring-2 ring-slate-100/30 w-full h-full" src="/profiles/0.jpg" />
                 </div>
             </div>
         </div >
