@@ -1,11 +1,25 @@
 'use client'
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 
 export default function Nav() {
     const [open, setOpen] = useState(true);
     const currentPage = usePathname();
+    const nav = useRef(null);
+
+    useEffect(() => {
+        // only add the event listener when the nav is opened
+        if (!open) return;
+        function handleClick(event) {
+            if (nav.current && !nav.current.contains(event.target)) {
+                setOpen(false);
+            }
+        }
+        document.addEventListener("click", handleClick);
+        // clean up
+        return () => document.removeEventListener("click", handleClick);
+    }, [open]);
 
     let camera = (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
@@ -67,9 +81,9 @@ export default function Nav() {
         </svg>
     );
     return (
-        <div className={open ? ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] right-3 fixed bottom-6 z-50 rounded-full max-w-md") : ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-12 ring-2 ring-slate-100/30 w-12 right-3 fixed bottom-6 z-50 rounded-full max-w-md")} id="nav-bar">
+        <div ref={nav} className={open ? ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] right-3 fixed bottom-6 z-50 rounded-full max-w-md") : ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-12 ring-2 ring-slate-100/30 w-12 right-3 fixed bottom-6 z-50 rounded-full max-w-md")} id="nav-bar">
             {open ? (
-                <div className={open ? ("flex w-[90%] overflow-clip h-full justify-center items-center gap-9 text-gray-200") : ("")}>
+                <div className="flex w-[90%] overflow-clip h-full justify-center items-center gap-9 text-gray-200">
                     <Link href="/app/notifications">
                         {currentPage === "/app/notifications" ? notificationsFull : notifications}
                     </Link>
@@ -82,16 +96,16 @@ export default function Nav() {
                     <Link href="/app/camera">
                         {currentPage === "/app/camera" ? cameraFull : camera}
                     </Link>
-                    <div onClick={() => setOpen(false)} className="w-8 h-8  flex justify-center items-center">
+                    <div className="w-8 h-8  flex justify-center items-center">
                         <img className="rounded-full object-cover ring-2 ring-slate-100/30 w-full h-full" src="/profiles/0.jpg" />
                     </div>
                 </div>
             ) : (
-                <div onClick={() => setOpen(true)} className="flex w-[90%] h-full justify-center items-center gap-9 text-gray-200">
+                <button onClick={() => setOpen(true)} className="flex w-[90%] h-full justify-center items-center gap-9 text-gray-200">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
-                </div>
+                </button>
             )
 
             }
