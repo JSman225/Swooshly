@@ -270,12 +270,7 @@ export default function Home() {
     <main className="rounded-top">
       <SearchBar />
 
-      <div className="mx-4 my-5 hidden">
-        <img className="rounded-xl object-cover h-40 w-full"
-          src="https://images.unsplash.com/photo-1493612276216-ee3925520721?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=464&q=80" />
-      </div>
-
-      <div className="mx-4 my-5 max-h-24">
+      <div className="mx-3 my-5 max-h-24">
         <img className="object-cover w-full ring-2 ring-white/10 rounded-2xl" src="https://i.ibb.co/hyN5SP0/Deltasoft-ai-2.png" />
       </div>
 

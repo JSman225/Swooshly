@@ -2,22 +2,25 @@
 import Masonry from "react-responsive-masonry";
 
 export default function StoriesGrid() {
-    const items = Array.from({ length: 20 }).map((_, index) => (
-        <div className="relative" key={index}>
-            <img className="rounded-2xl" src={"https://source.unsplash.com/random"} />
-            <div className="absolute bottom-[12px] left-[12px] h-[46px]">
-                <div className="flex justify-start items-center">
-                    <img className="object-cover h-8 w-8 rounded-full shadow-2xl" src={"https://source.unsplash.com/random"} />
-                    <span className="ml-[6px] text-xs text-white">Ava Reynolds</span>
-                </div>
-                <p className="text-[10px] opacity-75 text-white">@avareynolds • 2 hours ago</p>
-            </div>
-        </div>
-    ));
+    const items = Array.from({ length: 20 });
+
     return (
         <div className="w-[calc(100%-24px)] mx-auto">
             <Masonry columnsCount={2} gutter="12px">
-                {items}
+                {items.map((_, index) =>
+                (
+                    <div className="relative" key={index}>
+                        <img className="rounded-2xl" src={`https://source.unsplash.com/random?${index}`} />
+                        <div className="absolute bottom-[12px] left-[12px] h-[46px]">
+                            <div className="flex justify-start items-center">
+                                <img className="object-cover h-8 w-8 rounded-full shadow-2xl" src={`https://source.unsplash.com/random?${index+20}`} />
+                                <span className="ml-[6px] text-xs text-white">Ava Reynolds</span>
+                            </div>
+                            <p className="text-[10px] opacity-75 text-white">@avareynolds • 2 hours ago</p>
+                        </div>
+                    </div>
+                ))
+                }
             </Masonry>
             {/*
             <div className="mx-3 w-[calc(100%-24px)] my-5 grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-[10px]" style={{ gridAutoRows: '188px' }}>
