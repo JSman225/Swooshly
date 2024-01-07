@@ -275,7 +275,7 @@ export default function Home() {
       </div>
 
       <div className="mx-4 my-5 max-h-24">
-        <img className="object-cover w-full border-2 border-white/10 rounded-2xl" src="https://i.ibb.co/hyN5SP0/Deltasoft-ai-2.png" />
+        <img className="object-cover w-full ring-2 ring-white/10 rounded-2xl" src="https://i.ibb.co/hyN5SP0/Deltasoft-ai-2.png" />
       </div>
       
       <FollowingBar />

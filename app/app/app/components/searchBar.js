@@ -20,9 +20,9 @@ export default function SearchBar() {
             <div id="searchBar" className="w-full mx-4 mt-12 flex justify-center">
                 <div className="text-gray-100 flex mr-4 items-center w-full">
                     <div className={open ?
-                        ("text-gray-100 focus-within:border-2 focus-within:border-white relative flex items-center w-9/12 border-none h-[42px] rounded-lg bg-neutral-700")
+                        ("ring-2 ring-white/10 text-gray-100 focus-within:border-2 focus-within:border-white relative flex items-center w-9/12 border-none h-[42px] rounded-lg bg-neutral-700")
                         :
-                        ("text-gray-100 focus-within:border-2 focus-within:border-white relative flex items-center mr-4 w-full border-none h-[42px] rounded-lg bg-neutral-700")}>
+                        ("ring-2 ring-white/10 text-gray-100 focus-within:border-2 focus-within:border-white relative flex items-center mr-4 w-full border-none h-[42px] rounded-lg bg-neutral-700")}>
                         <svg id="searchIcon" className="w-6 h-6 ml-5" xmlns="http://www.w3.org/2000/svg" fill="none"
                             viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round"
@@ -39,14 +39,14 @@ export default function SearchBar() {
                             <path strokeLinecap="round" strokeLinejoin="round" d="M6 18 18 6M6 6l12 12" />
                         </svg>
                     </div>
-                    <p onClick={() => { setOpen(false) }} className={open ? ("ml-5 py-2 text-sm") : ("hidden")}>
+                    <p onClick={() => { setOpen(false); handleClearSearch(); }} className={open ? ("ml-5 py-2 text-sm") : ("hidden")}>
                         Close
                     </p>
 
                 </div>
 
             </div>
-            <div className={open ? ("w-full max-w-md h-vh px-5 absolute bg-[#111111] z-10") : ("hidden")}>
+            <div className={open ? ("w-full max-w-md h-vh px-5 mt-1 absolute bg-[#111111] z-10") : ("hidden")}>
                 <div id="loading" className="w-full hidden">
                     <svg className="mx-auto" width="75" height="75" version="1.1" id="L5" xmlns="http://www.w3.org/2000/svg"
                         xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 100 100"
