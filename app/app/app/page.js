@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Temp from './temp'
 import SearchBar from './components/searchBar';
 import FollowingBar from './components/followingBar';
+import StoriesGrid from './components/storiesGrid';
 
 export default function Home() {
   const [tempVisible, setTempVisible] = useState(false);
@@ -205,20 +206,20 @@ export default function Home() {
 
     // Debounce input and call the serverless function
     const debouncedFetch = debounce(fetchSearchResults, 300);
-/*
-    // Attach an event listener to the input field
-    searchInput.addEventListener('input', (event) => {
-      const query = event.target.value;
-
-      // Only trigger the search when there are at least 2 letters
-      if (query.length >= 2) {
-        debouncedFetch(query);
-      } else {
-        // Clear previous search results or take other appropriate action
-        // For example: clearResults();
-      }
-    });
-*/
+    /*
+        // Attach an event listener to the input field
+        searchInput.addEventListener('input', (event) => {
+          const query = event.target.value;
+    
+          // Only trigger the search when there are at least 2 letters
+          if (query.length >= 2) {
+            debouncedFetch(query);
+          } else {
+            // Clear previous search results or take other appropriate action
+            // For example: clearResults();
+          }
+        });
+    */
     const toggleSearch = () => {
       const targetElement = document.getElementById('searchBar');
       targetElement.classList.toggle('hidden');
@@ -252,17 +253,17 @@ export default function Home() {
 
       // Add more classes to toggle as needed
     };
-/*
-    const toggleButton2 = document.getElementById('cancelSearch');
-    toggleButton2.addEventListener('click', toggleSearch);
-    toggleButton2.addEventListener('click', function () {
-      abortController.abort();
-      loading.classList.add('hidden');
-      userList.innerHTML = "";
-    });
-    const toggleButton = document.getElementById('searchBarLarge');
-    toggleButton.addEventListener('mousedown', toggleSearch);
-    */
+    /*
+        const toggleButton2 = document.getElementById('cancelSearch');
+        toggleButton2.addEventListener('click', toggleSearch);
+        toggleButton2.addEventListener('click', function () {
+          abortController.abort();
+          loading.classList.add('hidden');
+          userList.innerHTML = "";
+        });
+        const toggleButton = document.getElementById('searchBarLarge');
+        toggleButton.addEventListener('mousedown', toggleSearch);
+        */
   }, []);
 
   return (
@@ -277,65 +278,10 @@ export default function Home() {
       <div className="mx-4 my-5 max-h-24">
         <img className="object-cover w-full ring-2 ring-white/10 rounded-2xl" src="https://i.ibb.co/hyN5SP0/Deltasoft-ai-2.png" />
       </div>
-      
+
       <FollowingBar />
 
-      <div className="mx-4 my-5 grid grid-cols-[repeat(auto-fill,minmax(150px,1fr))] gap-[10px]" style={{ gridAutoRows: '188px' }}>
-        <div className="relative bg-gray-500 rounded-[14px] max-w-[188px] row-span-2">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img className="object-cover h-full w-full rounded-[14px]" src="https://i.ibb.co/XtmjDMB/image-2-4.png" />
-          </div>
-          <div className="absolute inset-0 rounded-[14px] shadow-inner"></div>
-          <div className="absolute bottom-[12px] left-[12px] h-[46px]">
-            <div className="flex justify-start items-center">
-              <img className="object-cover h-8 w-8 rounded-full shadow-2xl" src="https://i.ibb.co/XtmjDMB/image-2-4.png" />
-              <span className="ml-[6px] text-xs text-white">Ava Reynolds</span>
-            </div>
-            <p className="text-[10px] opacity-75 text-white">@avareynolds • 2 hours ago</p>
-          </div>
-        </div>
-
-
-        <div className="relative bg-gray-500 rounded-[14px] max-w-[188px] row-span-1">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img className="object-cover h-full w-full rounded-[14px]" src="https://i.ibb.co/XtmjDMB/image-2-4.png" />
-          </div>
-          <div className="absolute inset-0 rounded-[14px] shadow-inner"></div>
-          <div className="absolute bottom-[12px] left-[12px] h-[46px]">
-            <div className="flex justify-start items-center">
-              <img className="object-cover h-8 w-8 rounded-full shadow-2xl" src="https://i.ibb.co/XtmjDMB/image-2-4.png" />
-              <span className="ml-[6px] text-xs text-white">Ava Reynolds</span>
-            </div>
-            <p className="text-[10px] opacity-75 text-white">@avareynolds • 2 hours ago</p>
-          </div>
-        </div>
-        <div className="relative bg-gray-500 rounded-[14px] max-w-[188px] row-span-2">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img className="object-cover h-full w-full rounded-[14px]" src="https://i.ibb.co/XtmjDMB/image-2-4.png" />
-          </div>
-          <div className="absolute inset-0 rounded-[14px] shadow-inner"></div>
-          <div className="absolute bottom-[12px] left-[12px] h-[46px]">
-            <div className="flex justify-start items-center">
-              <img className="object-cover h-8 w-8 rounded-full shadow-2xl" src="https://i.ibb.co/XtmjDMB/image-2-4.png" />
-              <span className="ml-[6px] text-xs text-white">Ava Reynolds</span>
-            </div>
-            <p className="text-[10px] opacity-75 text-white">@avareynolds • 2 hours ago</p>
-          </div>
-        </div>
-        <div className="relative bg-gray-500 rounded-[14px] max-w-[188px] row-span-1">
-          <div className="absolute inset-0 flex items-center justify-center">
-            <img className="object-cover h-full w-full rounded-[14px]" src="https://i.ibb.co/XtmjDMB/image-2-4.png" />
-          </div>
-          <div className="absolute inset-0 rounded-[14px] shadow-inner"></div>
-          <div className="absolute bottom-[12px] left-[12px] h-[46px]">
-            <div className="flex justify-start items-center">
-              <img className="object-cover h-8 w-8 rounded-full shadow-2xl" src="https://i.ibb.co/XtmjDMB/image-2-4.png" />
-              <span className="ml-[6px] text-xs text-white">Ava Reynolds</span>
-            </div>
-            <p className="text-[10px] opacity-75 text-white">@avareynolds • 2 hours ago</p>
-          </div>
-        </div>
-      </div>
+      <StoriesGrid />
 
       <Temp visible={tempVisible} onClose={toggleTemp} />
 
