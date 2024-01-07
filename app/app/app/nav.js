@@ -67,7 +67,7 @@ export default function Nav() {
         </svg>
     );
     return (
-        <div className={open ? ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] mx-auto inset-x-0 fixed bottom-6 z-50 rounded-full max-w-md") : ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-12 ring-2 ring-slate-100/30 w-12 right-3 fixed bottom-6 z-50 rounded-full max-w-md")} id="nav-bar">
+        <div className={open ? ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] right-3 fixed bottom-6 z-50 rounded-full max-w-md") : ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-12 ring-2 ring-slate-100/30 w-12 right-3 fixed bottom-6 z-50 rounded-full max-w-md")} id="nav-bar">
             {open ? (
                 <div className={open ? ("flex w-[90%] overflow-clip h-full justify-center items-center gap-9 text-gray-200") : ("")}>
                     <Link href="/app/notifications">
