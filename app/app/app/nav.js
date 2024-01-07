@@ -90,7 +90,7 @@ export default function Nav() {
                     <Link href="/app">
                         {currentPage === "/app" ? appFull : app}
                     </Link>
-                    <Link href="/app/swoosh">
+                    <Link onClick={() => setOpen(false)} href="/app/swoosh">
                         {currentPage === "/app/swoosh" ? swooshFull : swoosh}
                     </Link>
                     <Link href="/app/camera">
