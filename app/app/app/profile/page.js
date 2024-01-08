@@ -5,7 +5,7 @@ const lexend_deca = Lexend_Deca({ subsets: ['latin'] });
 export default function Profile() {
   return (
     <main className="overflow-hidden w-full h-full">
-      <img className="w-full h-[60vh] object-cover rounded-b-3xl shadow-[0_25px_45px_-5px_rgba(0,0,0,0.6)] shadow-black" src="https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+      <img className="w-full h-[60vh] object-cover rounded-b-3xl shadow-[0_25px_45px_-5px_rgba(0,0,0,0.6)] shadow-black" src="https://images.unsplash.com/photo-1682686578456-69ae00b0ecbd?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
       <div className={lexend_deca.className}>
         <div className="px-8">
           <h1 className="text-white font-normal mt-6 text-4xl">Ava Reynolds</h1>

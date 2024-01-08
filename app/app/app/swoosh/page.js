@@ -3,7 +3,7 @@
 export default function Home() {
   return (
     <main className="overflow-hidden w-full h-full">
-      <img className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1581403341630-a6e0b9d2d257?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+      <img className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1682686578456-69ae00b0ecbd?q=80&w=1374&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
 
 
       <div>
