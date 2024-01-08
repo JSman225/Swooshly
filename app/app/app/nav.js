@@ -96,9 +96,11 @@ export default function Nav() {
                     <Link href="/app/camera">
                         {currentPage === "/app/camera" ? cameraFull : camera}
                     </Link>
-                    <div className="w-8 h-8  flex justify-center items-center">
-                        <img className="rounded-full object-cover ring-2 ring-slate-100/30 w-full h-full" src="/profiles/0.jpg" />
-                    </div>
+                    <Link href="/app/profile">
+                        <div className="w-8 h-8  flex justify-center items-center">
+                            <img className="rounded-full object-cover ring-2 ring-slate-100/30 w-full h-full" src="/profiles/0.jpg" />
+                        </div>
+                    </Link>
                 </div>
             ) : (
                 <button onClick={() => setOpen(true)} className="flex w-[90%] h-full justify-center items-center gap-9 text-gray-200">
