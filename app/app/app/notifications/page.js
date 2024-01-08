@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 
-export default function Home() {
+export default function Notifications() {
   useEffect(() => {
     document.addEventListener('contextmenu', function (event) {
       if (event.target.tagName === 'IMG') {

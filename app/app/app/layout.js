@@ -2,7 +2,6 @@
 import '../globals.css';
 import Nav from './nav';
 import BottomSheet from './bottomSheet';
-import React, { useState, useEffect } from 'react';
 
 export default function AppLayout({ children }) {
   return (
