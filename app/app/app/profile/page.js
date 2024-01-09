@@ -9,8 +9,8 @@ export default function Profile() {
       <div className={lexend_deca.className}>
         <div className="bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black border-2 border-slate-100/30 w-[calc(100%-24px)] right-3 fixed top-36 z-10 rounded-3xl max-w-md">
           <div className="flex w-[90%] overflow-clip h-full justify-left flex-col items-top text-gray-200">
-            <h1 className="text-white font-normal mt-6 text-4xl">Ava Reynolds</h1>
-            <p className="text-white/80 font-normal mt-2 text-xl">@avareynolds</p>
+            <h1 className="text-white font-normal mt-6 text-4xl">Joe Man</h1>
+            <p className="text-white/80 font-normal mt-2 text-xl">@joeman</p>
             <div className="mb-6">
               <div className="text-white mt-6 text-opacity-75 text-md font-medium font-['Lexend Deca'] tracking-wide">BIO</div>
               <div className="text-white mt-2 text-opacity-75 text-sm font-normal font-['Lexend Deca'] tracking-wide">Porem ipsum dolor sit amet, consectetur adipiscing elit. Nunc vulputate libero et velit interdum, ac aliquet odio mattis. Class aptent taciti sociosqu ad litora torquent.</div>
