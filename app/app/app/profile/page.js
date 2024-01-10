@@ -7,7 +7,7 @@ export default function Profile() {
     <main>
       <img className="w-full h-full fixed top-0 left-0 object-cover rounded-b-3xl" src="https://images.unsplash.com/photo-1704098712161-67949aaf0eee?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
       <div className={lexend_deca.className}>
-        <div className="max-w-md w-full flex flex-col absolute bottom-28 items-center">
+        <div className="max-w-md w-full flex flex-col absolute bottom-24 items-center">
           <div className="bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black border-2 border-slate-100/30 w-[calc(100%-24px)] z-10 rounded-3xl">
             <div className="flex w-[90%] overflow-clip h-full justify-left flex-col items-top text-gray-200">
               <h1 className="text-white font-normal mt-6 text-4xl">Joe Man1</h1>
