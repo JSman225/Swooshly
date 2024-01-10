@@ -1,27 +1,28 @@
 'use client'
 import dynamic from "next/dynamic";
 import { useEffect } from 'react';
+import WebsiteNav from './app/components/websitenav';
 const PWAPrompt = dynamic(() => import('react-ios-pwa-prompt'), { ssr: false, });
 
 export default function Home() {
     useEffect(() => {
         if ('serviceWorker' in navigator) {
-          window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js').then(registration => {
-              console.log('Service Worker registered with scope:', registration.scope);
-            }).catch(error => {
-              console.log('Service Worker registration failed:', error);
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/service-worker.js').then(registration => {
+                    console.log('Service Worker registered with scope:', registration.scope);
+                }).catch(error => {
+                    console.log('Service Worker registration failed:', error);
+                });
             });
-          });
         }
-      }, []);
+    }, []);
     return (
         <>
             <PWAPrompt
-             permanentlyHideOnDismiss={false}
-             copyTitle="Install Swooshly"
-             copyBody="Install our app to your homescreen to start Swooshing!"
-             copyClosePrompt="Not right now..."
+                permanentlyHideOnDismiss={false}
+                copyTitle="Install Swooshly"
+                copyBody="Install our app to your homescreen to start Swooshing!"
+                copyClosePrompt="Not right now..."
             />
 
             <main className="bg-[#111111]">
@@ -84,6 +85,7 @@ export default function Home() {
                     </div>
                 </footer>
             </main>
+            <WebsiteNav />
         </>
     )
 }

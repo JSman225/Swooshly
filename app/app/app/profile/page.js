@@ -1,5 +1,5 @@
 'use client'
-import { Lexend_Deca, Mountains_of_Christmas } from 'next/font/google'
+import { Lexend_Deca } from 'next/font/google'
 const lexend_deca = Lexend_Deca({ subsets: ['latin'] });
 
 export default function Profile() {

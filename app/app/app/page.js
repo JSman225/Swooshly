@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import Nav from './nav'
+import Nav from './components/nav'
 import Link from 'next/link'
 import Temp from './temp'
 import SearchBar from './components/searchBar';
