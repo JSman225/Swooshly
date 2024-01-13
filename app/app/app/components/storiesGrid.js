@@ -9,7 +9,7 @@ export default function StoriesGrid() {
             <Masonry columnsCount={2} gutter="12px">
                 {items.map((_, index) =>
                 (
-                    <div className="relative rounded-2xl overflow-clip " key={index}>
+                    <a href='/profile' className="relative rounded-2xl overflow-clip " key={index}>
                         <img className="rounded-2xl" src={`https://source.unsplash.com/random?${index}`} />
                         <div className="absolute bottom-[12px] left-[12px] h-[46px]">
                             <div className="flex justify-start items-center">
@@ -18,7 +18,7 @@ export default function StoriesGrid() {
                             </div>
                             <p className="text-[10px] opacity-75 text-white">@avareynolds • 2 hours ago</p>
                         </div>
-                    </div>
+                    </a>
                 ))
                 }
             </Masonry>
