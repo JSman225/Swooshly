@@ -8,18 +8,37 @@ export default function Nav() {
     const currentPage = usePathname();
     const nav = useRef(null);
 
+    const [navState, setNavState] = useState("normal"); // states: normal. minimized, stretch
+
     useEffect(() => {
         // only add the event listener when the nav is opened
-        if (!open) return;
+        if (navState != "normal") return;
         function handleClick(event) {
             if (nav.current && !nav.current.contains(event.target)) {
-                setOpen(false);
+                setNavState("minimized");
             }
         }
         document.addEventListener("click", handleClick);
         // clean up
         return () => document.removeEventListener("click", handleClick);
-    }, [open]);
+    }, [navState]);
+
+    useEffect(() => {
+        console.log(currentPage);
+        switch (currentPage) {
+            case "/app":
+                setNavState("normal");
+                break;
+            case "/app/profile":
+                setNavState("normal");
+                break;
+            case "/app/swoosh":
+                setNavState("minimized");
+                break;
+            default:
+                setNavState("normal");
+        }
+    }, [currentPage])
 
     let camera = (
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor"
@@ -81,37 +100,39 @@ export default function Nav() {
         </svg>
     );
     return (
-        <div ref={currentPage === "/app/swoosh" ? nav : null} className={open ? ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-[4.5rem] ring-2 ring-slate-100/30 w-[calc(100%-24px)] left-1/2 transform -translate-x-1/2 fixed bottom-6 z-50 rounded-full max-w-md") : ("bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black h-12 ring-2 ring-slate-100/30 w-12 right-3 fixed bottom-6 z-50 rounded-full max-w-md")} id="nav-bar">
-            {open ? (
-                <div className="flex w-[90%] overflow-clip h-full justify-center items-center gap-9 text-gray-200">
-                    <Link href="/app/notifications">
-                        {currentPage === "/app/notifications" ? notificationsFull : notifications}
-                    </Link>
-                    <Link href="/app">
-                        {currentPage === "/app" ? appFull : app}
-                    </Link>
-                    <Link onClick={() => setOpen(false)} href="/app/swoosh">
-                        {currentPage === "/app/swoosh" ? swooshFull : swoosh}
-                    </Link>
-                    <Link href="/app/camera">
-                        {currentPage === "/app/camera" ? cameraFull : camera}
-                    </Link>
-                    <Link href="/app/profile">
-                        <div className="w-8 h-8  flex justify-center items-center">
-                            <img className="rounded-full object-cover ring-2 ring-slate-100/30 w-full h-full" src="/profiles/0.jpg" />
-                        </div>
-                    </Link>
-                </div>
-            ) : (
-                <button onClick={() => setOpen(true)} className="flex w-[90%] h-full justify-center items-center gap-9 text-gray-200">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                    </svg>
-                </button>
-            )
-
-            }
-
+        <div ref={currentPage === "/app/swoosh" ? nav : null}
+            className={`bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black ring-2 ring-slate-100/30 fixed bottom-6 z-50 max-w-md 
+                ${navState === "normal"
+                    ? "h-[4.5rem] w-[calc(100%-24px)] left-1/2 transform rounded-full -translate-x-1/2"
+                    : navState === "stretch" ?
+                    "bg-slate-900/20 flex justify-center backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black border-2 ring-0 border-slate-100/30 w-[calc(100%-24px)] z-10 rounded-3xl left-1/2 transform -translate-x-1/2"
+                    : "h-12 w-12 rounded-full right-3"
+                }`}
+        >
+            <div className={`${navState === "normal" ? "flex" : "hidden"} w-[90%] overflow-clip h-full justify-center items-center gap-9 text-gray-200`}>
+                <Link href="/app/notifications">
+                    {currentPage === "/app/notifications" ? notificationsFull : notifications}
+                </Link>
+                <Link href="/app">
+                    {currentPage === "/app" ? appFull : app}
+                </Link>
+                <Link onClick={() => setNavState("minimized")} href="/app/swoosh">
+                    {currentPage === "/app/swoosh" ? swooshFull : swoosh}
+                </Link>
+                <Link href="/app/camera">
+                    {currentPage === "/app/camera" ? cameraFull : camera}
+                </Link>
+                <Link href="/app/profile">
+                    <div className="w-8 h-8  flex justify-center items-center">
+                        <img className="rounded-full object-cover ring-2 ring-slate-100/30 w-full h-full" src="/profiles/0.jpg" />
+                    </div>
+                </Link>
+            </div>
+            <button onClick={async () => setNavState("normal")} className={`${navState !== "minimized" && "opacity-0 invisible"} absolute flex w-[90%] h-full justify-center items-center gap-9 text-gray-200`}>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
         </div>
     );
 }
