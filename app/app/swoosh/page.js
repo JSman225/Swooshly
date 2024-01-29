@@ -1,9 +1,65 @@
 'use client'
+import { useState } from "react";
 
 export default function Swoosh() {
+  const [touchStart, setTouchStart] = useState(null)
+  const [touchEnd, setTouchEnd] = useState(null)
+  const [translate, setTranslate] = useState(0)
+
+  // the required distance between touchStart and touchEnd to be detected as a swipe
+  const minSwipeDistance = 50;
+
+  const onTouchStart = (e) => {
+    setTouchEnd(null) // otherwise the swipe is fired even with usual touch events
+    setTouchStart(e.targetTouches[0].clientX);
+    console.log('touch start');
+  }
+
+  const onTouchMove = (e) => {
+    const currentTouch = e.targetTouches[0].clientX;
+    
+    if (!touchStart) {
+      setTouchStart(currentTouch);
+      return;
+    }
+  
+    setTouchEnd(currentTouch);
+    const distance = touchStart - currentTouch;
+    const isLeftSwipe = distance > minSwipeDistance;
+    const isRightSwipe = distance < -minSwipeDistance;
+  
+    if (isLeftSwipe) {
+      setTranslate(translate - 10);
+    } else if (isRightSwipe) {
+      setTranslate(translate + 10);
+    }
+  };
+
+  const onTouchEnd = () => {
+    if (!touchStart || !touchEnd) return
+    const distance = touchStart - touchEnd
+    const isLeftSwipe = distance > minSwipeDistance
+    const isRightSwipe = distance < -minSwipeDistance
+    if (isLeftSwipe || isRightSwipe) console.log('swipe', isLeftSwipe ? 'left' : 'right')
+    // add your conditional logic here
+  }
+
   return (
     <main className="overflow-hidden w-full h-full">
-      <img className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1704098712161-67949aaf0eee?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+      
+      <div onTouchStart={onTouchStart} onTouchMove={onTouchMove} onTouchEnd={onTouchEnd} className="overflow-hidden w-full h-full">
+
+
+        <img style={{ transform: `translateX(${translate}px)` }} className="w-full h-full object-cover" src="https://images.unsplash.com/photo-1704098712161-67949aaf0eee?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+
+
+
+
+
+
+
+      </div>
+
 
 
       <div>
