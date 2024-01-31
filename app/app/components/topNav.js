@@ -29,7 +29,7 @@ export default function TopNav() {
     }, [open]);
 
     return (
-        <div className="z-[99] w-[calc(100%-24px)] gap-3 flex justify-between items-center -translate-x-1/2 left-1/2 transform fixed top-6">
+        <div className="z-[99] w-[calc(100%-24px)] gap-3 flex justify-between items-center -translate-x-1/2 left-1/2 transform fixed top-12">
 
             <div className={`${titleState == 'search' && ("disapear")} bg-slate-900/20 flex justify-center items-center text-gray-400 backdrop-blur-2xl shadow-[0_20px_45px_-5px_rgba(0,0,0,0.5)] shadow-black ring-2 ring-slate-100/30 h-12 flex-shrink-0 w-12 rounded-full`}>
                 <div className="w-full h-full flex items-center justify-center">
