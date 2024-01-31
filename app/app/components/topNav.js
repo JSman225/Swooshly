@@ -1,6 +1,5 @@
 'use client'
 import { useState, useRef, useEffect } from 'react'
-import SearchBar from './searchBar';
 
 export default function TopNav() {
     const [open, setOpen] = useState(false)

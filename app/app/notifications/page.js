@@ -41,7 +41,7 @@ export default function Notifications() {
   }, []);
 
   return (
-    <main>
+    <main className="top-24 fixed">
       <div className="mx-4 my-5">
         <h1 className="text-white text-4xl font-sans">Notifications</h1>
       </div>

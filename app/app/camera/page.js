@@ -114,11 +114,6 @@ export default function Camera() {
         )
       }
 
-
-      <div className="absolute top-4 left-4 w-12 h-12 bg-neutral-900/20 rounded-full">
-
-      </div>
-
       <svg className="absolute bottom-28 left-1/2 transform -translate-x-1/2" height="100" width="100">
         <circle onClick={handleCircleClick} cx="50" cy="50" r="34" stroke="white" strokeWidth="6" fillOpacity="0%" />
       </svg>
