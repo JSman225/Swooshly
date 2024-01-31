@@ -267,12 +267,12 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="rounded-top">
-      <SearchBar />
-
+    <main className="rounded-top relative top-20">
+      {/*
       <div className="mx-3 my-5 max-h-24">
         <img className="object-cover w-full ring-2 ring-white/10 rounded-2xl" src="https://i.ibb.co/hyN5SP0/Deltasoft-ai-2.png" />
-      </div>
+      </div> 
+      */}
 
       <FollowingBar />
 
